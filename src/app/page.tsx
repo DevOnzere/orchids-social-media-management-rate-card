@@ -361,14 +361,17 @@ export default function LandingPage() {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <Card className={`relative flex h-full flex-col overflow-hidden border-2 ${plan.featured ? "border-black dark:border-white" : "border-zinc-100 dark:border-zinc-800"}`}>
+                      <Card className={`relative flex h-full flex-col overflow-hidden border-2 transition-all hover:shadow-2xl hover:-translate-y-1 ${plan.featured ? "border-black dark:border-white shadow-lg" : "border-zinc-100 dark:border-zinc-800"}`}>
                         {plan.featured && (
-                          <div className="absolute top-0 right-0 rounded-bl-xl bg-black px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-white dark:bg-white dark:text-black">
+                          <div className={`absolute top-0 right-0 rounded-bl-xl px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-white ${platform.color}`}>
                             Most Popular
                           </div>
                         )}
                         <CardHeader>
-                          <CardTitle className="font-heading text-2xl">{plan.name}</CardTitle>
+                          <div className="flex justify-between items-start mb-2">
+                            <CardTitle className="font-heading text-2xl">{plan.name}</CardTitle>
+                            <platform.icon className={`h-8 w-8 ${platform.color} rounded-xl p-1.5 text-white shadow-lg`} />
+                          </div>
                           <div className="flex items-baseline gap-1 pt-2">
                             <span className="text-sm font-semibold text-zinc-500">KES</span>
                             <span className="text-4xl font-black tracking-tight">{plan.price}</span>
@@ -379,14 +382,17 @@ export default function LandingPage() {
                           <ul className="space-y-4">
                             {plan.features.map((feature) => (
                               <li key={feature} className="flex items-start gap-3 text-sm">
-                                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900 dark:text-zinc-100" />
-                                <span className="text-zinc-600 dark:text-zinc-400">{feature}</span>
+                                <CheckCircle2 className={`mt-0.5 h-4 w-4 shrink-0 ${plan.featured ? "text-black dark:text-white" : "text-zinc-400"}`} />
+                                <span className="text-zinc-600 dark:text-zinc-400 font-medium">{feature}</span>
                               </li>
                             ))}
                           </ul>
                         </CardContent>
                         <CardFooter>
-                          <Button className={`w-full rounded-full ${plan.featured ? "" : "variant-outline border-2"}`}>
+                          <Button 
+                            className={`w-full h-12 rounded-xl font-bold uppercase tracking-tight transition-all active:scale-95 ${plan.featured ? "" : "bg-zinc-50 text-black hover:bg-zinc-100 border-2 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"}`}
+                            onClick={() => handleSelect(plan, platform.name)}
+                          >
                             Select {plan.name}
                           </Button>
                         </CardFooter>
