@@ -659,6 +659,45 @@ Please confirm my order.`;
           {/* Iconic Social Logos - Centered behind the text area */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 overflow-hidden">
             <div className="relative w-full max-w-6xl h-full">
+              {/* Added floating notification cards */}
+              <motion.div
+                animate={{ 
+                  y: [0, -40, 0],
+                  x: [0, 20, 0],
+                }}
+                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[25%] right-[15%] z-0"
+              >
+                <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-white/50 flex items-center gap-4 w-64">
+                  <div className="h-10 w-10 rounded-full bg-green-500 flex items-center justify-center text-white">
+                    <TrendingUp className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase text-zinc-400">Growth</p>
+                    <p className="text-sm font-black text-zinc-900">+12.5k Followers</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ 
+                  y: [0, 40, 0],
+                  x: [0, -20, 0],
+                }}
+                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute bottom-[30%] left-[15%] z-0"
+              >
+                <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-white/50 flex items-center gap-4 w-64">
+                  <div className="h-10 w-10 rounded-full bg-pink-500 flex items-center justify-center text-white">
+                    <Heart className="h-5 w-5 fill-current" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase text-zinc-400">Viral Moment</p>
+                    <p className="text-sm font-black text-zinc-900">1.2M Impressions</p>
+                  </div>
+                </div>
+              </motion.div>
+
               <motion.div
                 animate={{ 
                   y: [0, -30, 0],
