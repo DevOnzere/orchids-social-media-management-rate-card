@@ -461,11 +461,15 @@ Please confirm my order.`;
 
           {checkoutStep === 4 && (
             <div className="space-y-6">
-              <div id="invoice-capture" className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border-2 border-indigo-100 dark:border-indigo-900/30 shadow-xl shadow-indigo-500/5">
-                <div className="flex justify-between items-start mb-10">
+              <div id="invoice-capture" className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border-2 border-indigo-100 dark:border-indigo-900/30 shadow-xl shadow-indigo-500/5 relative overflow-hidden">
+                {/* Colorful Accent Brushes */}
+                <div className="absolute top-0 right-0 h-32 w-32 bg-indigo-500/10 blur-3xl rounded-full -mr-16 -mt-16" />
+                <div className="absolute bottom-0 left-0 h-32 w-32 bg-pink-500/10 blur-3xl rounded-full -ml-16 -mb-16" />
+                
+                <div className="flex justify-between items-start mb-10 relative z-10">
                   <div className="flex items-center gap-2">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500 text-white shadow-lg shadow-indigo-500/20">
-                      <Zap className="h-6 w-6" />
+                      <Zap className="h-6 w-6 fill-current" />
                     </div>
                     <div>
                       <h2 className="text-xl font-black uppercase tracking-tighter">BrandBoost</h2>
@@ -473,57 +477,60 @@ Please confirm my order.`;
                     </div>
                   </div>
                   <div className="text-right">
-                    <h2 className="text-2xl font-black uppercase tracking-tighter text-zinc-300 dark:text-zinc-700">Invoice</h2>
+                    <h2 className="text-2xl font-black uppercase tracking-tighter bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">Invoice</h2>
                     <p className="text-[10px] font-bold text-zinc-400">#{Math.floor(100000 + Math.random() * 900000)}</p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-8 mb-10 border-y py-8 border-zinc-100 dark:border-zinc-800">
+                <div className="grid grid-cols-2 gap-8 mb-10 border-y py-8 border-zinc-100 dark:border-zinc-800 relative z-10">
                   <div>
-                    <p className="text-[10px] font-bold uppercase text-zinc-400 mb-3 tracking-widest">Client Details</p>
+                    <p className="text-[10px] font-bold uppercase text-indigo-500 mb-3 tracking-widest">Client Details</p>
                     <p className="font-black text-lg leading-none mb-1">{formData.businessName || "Valued Client"}</p>
                     <p className="text-xs text-zinc-500 mb-0.5">{formData.email}</p>
                     <p className="text-xs text-zinc-500">{formData.whatsapp}</p>
-                    {formData.socialHandle && <p className="text-[10px] mt-2 font-bold text-indigo-500">@{formData.socialHandle}</p>}
+                    {formData.socialHandle && <p className="text-[10px] mt-2 font-bold text-pink-500">@{formData.socialHandle}</p>}
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px] font-bold uppercase text-zinc-400 mb-3 tracking-widest">Issue Date</p>
+                    <p className="text-[10px] font-bold uppercase text-indigo-500 mb-3 tracking-widest">Issue Date</p>
                     <p className="font-black text-lg leading-none">{new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
                     <div className="mt-4 pt-4 border-t border-zinc-50 dark:border-zinc-800/50">
                       <p className="text-[10px] font-bold uppercase text-zinc-400 mb-1 tracking-widest">Payment Method</p>
-                      <p className="text-xs font-bold uppercase text-indigo-600">{paymentMethod}</p>
+                      <Badge variant="outline" className="text-[10px] font-black uppercase border-indigo-200 text-indigo-600 bg-indigo-50/50">
+                        {paymentMethod}
+                      </Badge>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6 mb-10">
+                <div className="space-y-6 mb-10 relative z-10">
                   <div className="flex justify-between items-center pb-6 border-b border-zinc-50 dark:border-zinc-800">
                     <div>
-                      <p className="font-black uppercase text-base mb-1">{selectedPackage?.platform} - {selectedPackage?.name}</p>
-                      <p className="text-xs text-zinc-400 font-medium">Complete service delivery for 30 days</p>
+                      <div className="inline-block px-2 py-0.5 rounded-md bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 text-[8px] font-black uppercase tracking-widest mb-1">{selectedPackage?.platform}</div>
+                      <p className="font-black uppercase text-base mb-1">{selectedPackage?.name}</p>
+                      <p className="text-xs text-zinc-400 font-medium">{isExtraService ? "One-time service delivery" : "Complete service delivery for 30 days"}</p>
                       {formData.specifications.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-3">
                           {formData.specifications.map(s => (
-                            <span key={s} className="text-[8px] font-black uppercase px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded-full">{s}</span>
+                            <span key={s} className="text-[8px] font-black uppercase px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-500">{s}</span>
                           ))}
                         </div>
                       )}
                     </div>
                     <div className="text-right">
                       <p className="text-xs font-bold text-zinc-400 mb-1">Amount</p>
-                      <p className="font-black text-xl">KES {selectedPackage?.price}</p>
+                      <p className="font-black text-xl text-indigo-600">KES {selectedPackage?.price}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex justify-between items-end">
+                <div className="flex justify-between items-end relative z-10">
                   <div>
                     <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-1">Notes</p>
                     <p className="text-[10px] font-medium text-zinc-500 max-w-[200px]">Service starts immediately after payment confirmation. T&C apply.</p>
                   </div>
                   <div className="text-right">
                     <span className="text-xs font-black uppercase tracking-tighter opacity-40 mr-4">Grand Total Due</span>
-                    <span className="text-4xl font-black tracking-tighter text-indigo-600">KES {selectedPackage?.price}</span>
+                    <span className="text-4xl font-black tracking-tighter bg-gradient-to-br from-indigo-600 to-pink-600 bg-clip-text text-transparent">KES {selectedPackage?.price}</span>
                   </div>
                 </div>
               </div>
@@ -531,21 +538,24 @@ Please confirm my order.`;
               <div className="grid grid-cols-2 gap-4">
                 <Button 
                   variant="outline" 
-                  className="h-14 rounded-[1.5rem] gap-2 border-2 hover:bg-zinc-50 dark:hover:bg-zinc-900" 
+                  className="h-14 rounded-[1.5rem] gap-2 border-2 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all hover:border-indigo-300" 
                   onClick={handleDownloadInvoice}
                 >
                   <Download className="h-4 w-4" />
                   <span className="font-bold uppercase tracking-wider text-xs">PDF Copy</span>
                 </Button>
                 
-                <Button className="h-14 rounded-[1.5rem] bg-indigo-600 hover:bg-indigo-700 text-white border-none gap-2 shadow-xl shadow-indigo-500/20">
+                <Button 
+                  className="h-14 rounded-[1.5rem] bg-indigo-600 hover:bg-indigo-700 text-white border-none gap-2 shadow-xl shadow-indigo-500/20 transition-all active:scale-95"
+                  onClick={handleConfirmPayment}
+                >
                   <Zap className="h-4 w-4 fill-current" />
                   <span className="font-bold uppercase tracking-wider text-xs">Confirm Payment</span>
                 </Button>
               </div>
               
               <p className="text-center text-[10px] text-zinc-500 uppercase font-black tracking-[0.2em] pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                Verified Digital Transaction
+                Verified Digital Transaction • BrandBoost KE
               </p>
             </div>
           )}
