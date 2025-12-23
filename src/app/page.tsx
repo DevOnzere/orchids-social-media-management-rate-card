@@ -621,112 +621,183 @@ Please confirm my order.`;
       </nav>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20 bg-white">
+      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20 bg-white dark:bg-zinc-950">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 -z-10">
           {/* Professional Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]">
+          <div className="absolute inset-0 opacity-[0.08] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
                   <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#hero-grid)" className="text-zinc-900" />
+              <rect width="100%" height="100%" fill="url(#hero-grid)" className="text-zinc-900 dark:text-white" />
             </svg>
           </div>
 
+          {/* Grain Overlay for Premium Feel */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+          {/* Dynamic Background Orbs */}
           <motion.div 
             animate={{ 
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.5, 0.3],
+              scale: [1, 1.2, 1],
+              x: [0, 50, 0],
+              y: [0, -30, 0],
             }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[10%] left-[10%] h-[500px] w-[500px] rounded-full bg-indigo-500/20 blur-[100px]" 
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[10%] left-[15%] h-[600px] w-[600px] rounded-full bg-indigo-500/30 blur-[120px]" 
           />
           <motion.div 
             animate={{ 
-              scale: [1.1, 1, 1.1],
-              opacity: [0.2, 0.4, 0.2],
+              scale: [1.2, 1, 1.2],
+              x: [0, -50, 0],
+              y: [0, 30, 0],
             }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-[10%] right-[10%] h-[500px] w-[500px] rounded-full bg-pink-500/20 blur-[100px]" 
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[10%] right-[15%] h-[600px] w-[600px] rounded-full bg-pink-500/20 blur-[120px]" 
+          />
+          <motion.div 
+            animate={{ 
+              opacity: [0.1, 0.3, 0.1],
+              scale: [0.8, 1, 0.8],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[40%] left-[45%] h-[400px] w-[400px] rounded-full bg-purple-500/20 blur-[100px]" 
           />
           
-          {/* Floating Social Cards */}
+          {/* Floating Social Elements - More Exciting & Visible */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {/* Instagram Style Card */}
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
-              style={{ top: '20%', left: '12%' }}
-              className="absolute hidden xl:block"
-            >
+            {/* Drifting 'Like' Hearts */}
+            {[...Array(6)].map((_, i) => (
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-48 bg-white/90 backdrop-blur-xl p-3 rounded-2xl border border-zinc-200 shadow-2xl"
+                key={`heart-${i}`}
+                initial={{ 
+                  x: Math.random() * 100 + "%", 
+                  y: "110%", 
+                  opacity: 0,
+                  scale: 0.5 
+                }}
+                animate={{ 
+                  y: "-10%", 
+                  opacity: [0, 0.8, 0],
+                  x: (Math.random() * 100 - 50) + "px",
+                  rotate: Math.random() * 45 - 22.5
+                }}
+                transition={{ 
+                  duration: 8 + Math.random() * 10, 
+                  repeat: Infinity, 
+                  delay: Math.random() * 10,
+                  ease: "linear"
+                }}
+                className="absolute text-pink-500/40"
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="h-6 w-6 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600" />
-                  <div className="h-2 w-16 bg-zinc-200 rounded-full" />
-                </div>
-                <div className="aspect-square rounded-lg bg-zinc-100 mb-2 overflow-hidden flex items-center justify-center">
-                  <Instagram className="h-8 w-8 text-pink-500" />
-                </div>
-                <div className="flex gap-2">
-                  <Heart className="h-3 w-3 text-red-500 fill-red-500" />
-                  <MessageCircle className="h-3 w-3 text-zinc-400" />
-                </div>
+                <Heart className="h-8 w-8 fill-current" />
               </motion.div>
-            </motion.div>
+            ))}
 
-            {/* TikTok Style Card */}
-            <motion.div
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.7, duration: 1 }}
-              style={{ top: '55%', right: '12%' }}
-              className="absolute hidden xl:block"
-            >
+            {/* Drifting 'Plus' / Sparkle icons */}
+            {[...Array(8)].map((_, i) => (
               <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="w-44 bg-zinc-950 p-3 rounded-2xl border border-white/10 shadow-2xl"
+                key={`sparkle-${i}`}
+                initial={{ 
+                  x: Math.random() * 100 + "%", 
+                  y: Math.random() * 100 + "%", 
+                  opacity: 0 
+                }}
+                animate={{ 
+                  opacity: [0, 0.5, 0],
+                  scale: [0.5, 1.2, 0.5],
+                  rotate: [0, 180, 360]
+                }}
+                transition={{ 
+                  duration: 5 + Math.random() * 5, 
+                  repeat: Infinity, 
+                  delay: Math.random() * 5 
+                }}
+                className="absolute text-indigo-400/30"
               >
-                <div className="aspect-[3/4] rounded-lg bg-zinc-800 mb-2 overflow-hidden flex flex-col items-center justify-center relative">
-                  <Music2Icon className="h-10 w-10 text-white" />
-                  <div className="absolute bottom-2 left-2 flex items-center gap-1">
-                    <div className="h-4 w-4 rounded-full bg-cyan-400" />
-                    <div className="h-1.5 w-12 bg-white/20 rounded-full" />
+                <Sparkles className="h-6 w-6" />
+              </motion.div>
+            ))}
+
+            {/* Floating UI Snapshots - Layered behind */}
+            <motion.div
+              initial={{ x: -200, opacity: 0, rotate: -10 }}
+              animate={{ x: 0, opacity: 0.6, rotate: -5 }}
+              transition={{ delay: 0.4, duration: 1.5 }}
+              style={{ top: '15%', left: '8%' }}
+              className="absolute hidden 2xl:block"
+            >
+              <div className="w-64 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md p-4 rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500" />
+                  <div className="space-y-1.5">
+                    <div className="h-2 w-20 bg-zinc-400/30 rounded-full" />
+                    <div className="h-1.5 w-12 bg-zinc-400/20 rounded-full" />
                   </div>
                 </div>
-                <div className="h-2 w-24 bg-white/10 rounded-full" />
-              </motion.div>
+                <div className="aspect-[4/3] rounded-2xl bg-zinc-200/50 dark:bg-zinc-800/50 mb-3 flex items-center justify-center">
+                  <Image  className="h-10 w-10 text-zinc-400/50" />
+                </div>
+                <div className="flex gap-3">
+                  <div className="h-2 w-full bg-zinc-300/30 rounded-full" />
+                  <div className="h-2 w-1/2 bg-zinc-300/20 rounded-full" />
+                </div>
+              </div>
             </motion.div>
 
-            {/* Stats Card */}
             <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.9, duration: 1 }}
-              style={{ bottom: '15%', left: '35%' }}
-              className="absolute hidden lg:block"
+              initial={{ x: 200, opacity: 0, rotate: 10 }}
+              animate={{ x: 0, opacity: 0.6, rotate: 5 }}
+              transition={{ delay: 0.6, duration: 1.5 }}
+              style={{ bottom: '20%', right: '8%' }}
+              className="absolute hidden 2xl:block"
             >
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="bg-indigo-600 text-white p-4 rounded-3xl shadow-2xl flex items-center gap-4"
-              >
-                <div className="h-10 w-10 rounded-xl bg-white/20 flex items-center justify-center">
-                  <TrendingUp className="h-5 w-5" />
+              <div className="w-60 bg-zinc-900/60 backdrop-blur-md p-4 rounded-3xl border border-white/10 shadow-2xl">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="h-8 w-8 rounded-full bg-white/20" />
+                  <div className="h-4 w-12 bg-indigo-500/40 rounded-full" />
                 </div>
-                <div>
-                  <p className="text-[10px] font-black uppercase opacity-70">Weekly Growth</p>
-                  <p className="text-xl font-black">+240%</p>
+                <div className="space-y-2 mb-4">
+                  <div className="h-2 w-full bg-white/10 rounded-full" />
+                  <div className="h-2 w-3/4 bg-white/10 rounded-full" />
+                  <div className="h-2 w-1/2 bg-white/10 rounded-full" />
                 </div>
-              </motion.div>
+                <div className="flex justify-between items-center text-white/30">
+                  <div className="flex gap-2">
+                    <Heart className="h-4 w-4" />
+                    <MessageCircle className="h-4 w-4" />
+                  </div>
+                  <Share2 className="h-4 w-4" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Floating Metric Tags */}
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              style={{ top: '45%', left: '15%' }}
+              className="absolute hidden lg:block bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl px-4 py-2 rounded-full border border-indigo-100 dark:border-zinc-800 shadow-xl"
+            >
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-600 dark:text-zinc-400">Live Growth: +12.4k</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              style={{ top: '35%', right: '20%' }}
+              className="absolute hidden lg:block bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl px-4 py-2 rounded-full border border-pink-100 dark:border-zinc-800 shadow-xl"
+            >
+              <div className="flex items-center gap-2">
+                <TrendingUp className="h-3 w-3 text-pink-500" />
+                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-600 dark:text-zinc-400">Trending Now</span>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -747,7 +818,7 @@ Please confirm my order.`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem]"
+            className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem] dark:text-white"
           >
             <motion.span 
               animate={{ 
@@ -761,10 +832,10 @@ Please confirm my order.`;
               animate={{ 
                 color: ["#8b5cf6", "#4f46e5", "#ec4899", "#8b5cf6"],
                 textShadow: [
-                  "0 0 20px rgba(139,92,246,0)", 
-                  "0 0 20px rgba(79,70,229,0.3)", 
-                  "0 0 20px rgba(236,72,153,0.3)",
-                  "0 0 20px rgba(139,92,246,0)"
+                  "0 0 30px rgba(139,92,246,0)", 
+                  "0 0 30px rgba(79,70,229,0.4)", 
+                  "0 0 30px rgba(236,72,153,0.4)",
+                  "0 0 30px rgba(139,92,246,0)"
                 ]
               }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -801,7 +872,7 @@ Please confirm my order.`;
               Explore Services
               <ArrowRight className="ml-3 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="h-16 rounded-[2rem] border-2 border-zinc-200 px-10 text-lg font-black uppercase tracking-wider backdrop-blur-xl transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900" onClick={openWhatsApp}>
+            <Button size="lg" variant="outline" className="h-16 rounded-[2rem] border-2 border-zinc-200 px-10 text-lg font-black uppercase tracking-wider backdrop-blur-xl transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" onClick={openWhatsApp}>
               WhatsApp Us
             </Button>
           </motion.div>
