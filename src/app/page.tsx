@@ -265,7 +265,29 @@ Please confirm my order.`;
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-500 selection:text-white dark:bg-zinc-950 dark:selection:bg-indigo-400">
       {/* Checkout Dialog */}
       <Dialog open={!!selectedPackage} onOpenChange={(open) => !open && setSelectedPackage(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto border-none shadow-2xl">
+        {checkoutStep === 4 && (
+          <style dangerouslySetInnerHTML={{ __html: `
+            @media print {
+              body * { visibility: hidden !important; }
+              #invoice-capture, #invoice-capture * { visibility: visible !important; }
+              #invoice-capture {
+                position: fixed !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                padding: 20mm !important;
+                margin: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                background: white !important;
+                z-index: 9999 !important;
+              }
+            }
+          ` }} />
+        )}
+        <DialogContent className={`${checkoutStep === 4 ? "max-w-4xl w-[95vw] min-h-[90vh]" : "max-w-2xl max-h-[90vh]"} overflow-y-auto border-none shadow-2xl transition-all duration-300`}>
           {checkoutStep === 1 && (
             <div className="space-y-6">
               <DialogHeader>
