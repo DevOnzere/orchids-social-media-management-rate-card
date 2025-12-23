@@ -874,21 +874,21 @@ Please confirm my order.`;
               ICONIC
             </motion.span>{" "}
             <br />
-            <span className="relative">
-              DIGITAL
+            <span className="relative whitespace-nowrap">
+              DIGITAL{" "}
+              <span className="inline-block min-w-[200px] text-indigo-600">
+                {words[wordIndex].substring(0, subIndex)}
+                <motion.span
+                  animate={{ opacity: [0, 1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity, ease: "stepEnd" }}
+                  className="inline-block w-2 h-[0.8em] bg-current ml-1 align-middle"
+                />
+              </span>
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 1, duration: 0.8 }}
                 className="absolute -bottom-4 left-0 h-6 bg-indigo-500/10 -z-10" 
-              />
-            </span>{" "}
-            <span className="inline-block min-w-[200px] text-indigo-600">
-              {words[wordIndex].substring(0, subIndex)}
-              <motion.span
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity, ease: "stepEnd" }}
-                className="inline-block w-2 h-[0.8em] bg-current ml-1 align-middle"
               />
             </span>
           </motion.h1>
