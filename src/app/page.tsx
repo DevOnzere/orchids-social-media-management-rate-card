@@ -129,11 +129,11 @@ const PLATFORMS = [
       icon: Sparkles,
       color: "bg-indigo-600",
       plans: [
-        { name: "Content Creation", price: "10,000", features: ["Professional photography", "Short-form video", "Brand storytelling", "Monthly content bank"] },
-        { name: "Graphics Designs", price: "5,000", features: ["Logo & Identity", "Marketing materials", "Social media templates", "Unlimited revisions"] },
-        { name: "Google Ads", price: "15,000", features: ["Keyword research", "Search & Display ads", "Monthly reporting", "ROI tracking"] },
-        { name: "YouTube Management", price: "12,000", features: ["Channel SEO", "Upload scheduling", "Comment moderation", "Monthly analytics"] },
-        { name: "Thumbnails", price: "3,000", features: ["High CTR designs", "A/B testing support", "Custom branding", "Fast 24h delivery"] },
+        { name: "Content Creation", price: "1,000", features: ["Professional photography", "Short-form video", "Brand storytelling", "Monthly content bank"] },
+        { name: "Graphics Designs", price: "500", features: ["Logo & Identity", "Marketing materials", "Social media templates", "Unlimited revisions"] },
+        { name: "Google Ads", price: "1,500", features: ["Keyword research", "Search & Display ads", "Monthly reporting", "ROI tracking"] },
+        { name: "YouTube Management", price: "2,000", features: ["Channel SEO", "Upload scheduling", "Comment moderation", "Monthly analytics"] },
+        { name: "Thumbnails", price: "500", features: ["High CTR designs", "A/B testing support", "Custom branding", "Fast 24h delivery"] },
       ]
     }
 ];
