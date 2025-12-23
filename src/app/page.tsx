@@ -1023,6 +1023,33 @@ Please confirm my order.`;
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-32 bg-white dark:bg-zinc-950">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="mb-20 text-center">
+            <Badge className="mb-4 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-none px-4 py-1 uppercase tracking-[0.2em] font-black text-[10px]">Knowledge Base</Badge>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Frequently Asked <span className="text-indigo-600">Questions</span></h2>
+          </div>
+          
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {[
+              { q: "What is your typical turnaround time?", a: "For social media management, we start within 48 hours of payment. Website projects typically take 7-14 days depending on complexity." },
+              { q: "Do you handle content creation?", a: "Yes! Our Pro and Elite plans include custom graphics and video editing. We also have a dedicated 'Extra Services' section for specialized content shoots." },
+              { q: "How do I pay from outside Kenya?", a: "We currently accept M-Pesa (for local clients) and Bitcoin/Crypto for our international partners. Contact us for more payment options." },
+              { q: "Can I switch plans midway?", a: "Absolutely. You can upgrade or downgrade your management tier at the end of each 30-day cycle." },
+              { q: "Do you offer customized packages?", a: "Yes, we can build a bespoke strategy specifically for your business goals. Book a strategy call to discuss further." }
+            ].map((item, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border-2 border-zinc-100 dark:border-zinc-800 rounded-2xl px-6 bg-zinc-50/50 dark:bg-zinc-900/50 overflow-hidden">
+                <AccordionTrigger className="text-sm font-black uppercase tracking-wider hover:no-underline hover:text-indigo-600 py-6">{item.q}</AccordionTrigger>
+                <AccordionContent className="text-zinc-500 dark:text-zinc-400 font-medium pb-6 leading-relaxed">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       {/* CTA Section - "Iconic" high impact */}
       <section className="py-40">
         <div className="container mx-auto px-6 text-center">
