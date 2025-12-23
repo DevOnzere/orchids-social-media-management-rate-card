@@ -734,7 +734,7 @@ export default function LandingPage() {
           <div className="grid gap-10 md:grid-cols-3">
             {[
               { 
-                title: "Vanguard Duo", 
+                title: "Hustler Bundle", 
                 discount: "15% SAVING", 
                 price: "8,000", 
                 original: "9,500", 
@@ -742,7 +742,7 @@ export default function LandingPage() {
                 features: ["Any 2 platforms", "20 posts total", "4 reels/videos", "4 stories per month"] 
               },
               { 
-                title: "Trident Master", 
+                title: "Biashara Elite", 
                 discount: "20% SAVING", 
                 price: "28,000", 
                 original: "35,000", 
@@ -751,7 +751,7 @@ export default function LandingPage() {
                 features: ["Any 3 platforms", "60 posts total", "20 videos/reels", "36 stories per month"] 
               },
               { 
-                title: "Omni Suite", 
+                title: "Chapa Kazi Suite", 
                 discount: "25% SAVING", 
                 price: "14,250", 
                 original: "19,000", 
