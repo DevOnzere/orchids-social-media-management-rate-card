@@ -812,7 +812,7 @@ Please confirm my order.`;
 
           {/* Floating 'Like' Hearts - More frequent and visible */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(15)].map((_, i) => (
+            {mounted && [...Array(15)].map((_, i) => (
               <motion.div
                 key={`heart-${i}`}
                 initial={{ 
