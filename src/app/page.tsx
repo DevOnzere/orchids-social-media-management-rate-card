@@ -624,8 +624,24 @@ Please confirm my order.`;
       <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-indigo-500/10 blur-[120px] dark:bg-indigo-500/5" />
-          <div className="absolute bottom-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-pink-500/10 blur-[120px] dark:bg-pink-500/5" />
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              x: [0, 50, 0],
+              y: [0, 30, 0],
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-indigo-500/10 blur-[120px] dark:bg-indigo-500/5" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              x: [0, -50, 0],
+              y: [0, -30, 0],
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-pink-500/10 blur-[120px] dark:bg-pink-500/5" 
+          />
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150" />
           
           {/* Floating Social Elements */}
