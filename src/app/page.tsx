@@ -856,13 +856,7 @@ Please confirm my order.`;
             className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem] text-zinc-950"
           >
             <motion.span 
-              className="inline-block"
-              animate={{ 
-                color: ["#4f46e5", "#ec4899", "#8b5cf6", "#4f46e5"],
-              }}
-              transition={{ 
-                color: { duration: 5, repeat: Infinity, ease: "linear", delay: 1 }
-              }}
+              className="inline-block text-zinc-950"
             >
               CRAFTING
             </motion.span>{" "}
