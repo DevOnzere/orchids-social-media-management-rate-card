@@ -577,7 +577,6 @@ Please confirm my order.`;
             <a href="#websites" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Website Design</a>
             <a href="#faq" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Help</a>
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm" className="h-11 rounded-2xl px-6 font-black uppercase tracking-wider border-2 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all" onClick={bookStrategyCall}>Strategy Call</Button>
               <Button size="sm" className="h-11 rounded-2xl px-8 font-black uppercase tracking-wider bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-500/20" onClick={openWhatsApp}>Consult Now</Button>
             </div>
           </div>
