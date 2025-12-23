@@ -407,11 +407,21 @@ export default function LandingPage() {
       </section>
 
       {/* Bundles Section */}
-      <section id="bundles" className="bg-zinc-50 py-24 dark:bg-zinc-900/50">
-        <div className="container mx-auto px-4">
+      <section id="bundles" className="bg-zinc-50 py-24 dark:bg-zinc-900/50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="black" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="mb-16 text-center">
             <h2 className="font-heading text-4xl font-bold tracking-tight md:text-6xl">SAVE MORE WITH BUNDLES</h2>
-            <p className="mt-4 text-zinc-500 text-lg">Mix and match platforms for massive discounts</p>
+            <p className="mt-4 text-zinc-500 text-lg max-w-2xl mx-auto">Mix and match platforms for massive discounts. Perfect for brands that want a 360° digital presence.</p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
@@ -419,23 +429,26 @@ export default function LandingPage() {
               { 
                 title: "2 Platforms", 
                 discount: "15% OFF", 
-                example: "KES 8,000/mo", 
-                original: "KES 9,500", 
+                price: "8,000", 
+                original: "9,500", 
+                color: "from-blue-500 to-cyan-400",
                 features: ["Choose any 2 platforms", "20 posts total", "4 reels/videos", "4 stories per month"] 
               },
               { 
                 title: "3 Platforms", 
                 discount: "20% OFF", 
-                example: "KES 28,000/mo", 
-                original: "KES 35,000", 
+                price: "28,000", 
+                original: "35,000", 
                 featured: true,
+                color: "from-purple-600 to-pink-500",
                 features: ["Choose any 3 platforms", "60 posts total", "20 videos/reels", "36 stories per month"] 
               },
               { 
                 title: "4+ Platforms", 
                 discount: "25% OFF", 
-                example: "KES 14,250/mo", 
-                original: "KES 19,000", 
+                price: "14,250", 
+                original: "19,000", 
+                color: "from-orange-500 to-yellow-400",
                 features: ["4 or more platforms", "40+ posts total", "8 reels/videos", "8 stories per month"] 
               },
             ].map((bundle, i) => (
@@ -446,29 +459,34 @@ export default function LandingPage() {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className={`relative flex h-full flex-col border-none bg-white p-2 dark:bg-zinc-950 ${bundle.featured ? "shadow-2xl ring-2 ring-black dark:ring-white" : "shadow-xl"}`}>
-                  <CardHeader className="text-center">
-                    <div className="mb-4 inline-flex self-center rounded-full bg-black px-4 py-1 text-xs font-bold text-white dark:bg-white dark:text-black">
+                <Card className={`relative flex h-full flex-col border-none bg-white p-2 dark:bg-zinc-950 transition-all hover:shadow-2xl ${bundle.featured ? "shadow-2xl ring-2 ring-black dark:ring-white scale-105 z-10" : "shadow-xl"}`}>
+                  <div className={`h-2 rounded-t-xl bg-gradient-to-r ${bundle.color}`} />
+                  <CardHeader className="text-center pt-8">
+                    <div className={`mb-4 inline-flex self-center rounded-full px-4 py-1 text-xs font-bold text-white bg-gradient-to-r ${bundle.color}`}>
                       {bundle.discount}
                     </div>
                     <CardTitle className="font-heading text-3xl">{bundle.title}</CardTitle>
                     <CardDescription className="mt-2 flex items-center justify-center gap-2">
-                      <span className="line-through opacity-50">{bundle.original}</span>
-                      <span className="text-2xl font-black text-black dark:text-white">{bundle.example}</span>
+                      <span className="line-through opacity-50 text-sm">KES {bundle.original}</span>
+                      <span className="text-2xl font-black text-black dark:text-white">KES {bundle.price}/mo</span>
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow pt-4">
-                    <ul className="space-y-4">
+                    <ul className="space-y-4 px-4">
                       {bundle.features.map((feature) => (
                         <li key={feature} className="flex items-center gap-3 text-sm">
-                          <CheckCircle2 className="h-5 w-5 shrink-0 text-black dark:text-white" />
+                          <CheckCircle2 className="h-5 w-5 shrink-0 text-zinc-900 dark:text-zinc-100" />
                           <span className="font-medium">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </CardContent>
-                  <CardFooter>
-                    <Button className="w-full rounded-xl py-6 text-lg font-bold uppercase tracking-wider" variant={bundle.featured ? "default" : "secondary"}>
+                  <CardFooter className="pb-8">
+                    <Button 
+                      className={`w-full rounded-xl py-6 text-lg font-bold uppercase tracking-wider ${bundle.featured ? "" : "bg-zinc-100 text-black hover:bg-zinc-200 dark:bg-zinc-800 dark:text-white"}`} 
+                      variant={bundle.featured ? "default" : "ghost"}
+                      onClick={() => handleSelect({ name: bundle.title, price: bundle.price })}
+                    >
                       Get This Bundle
                     </Button>
                   </CardFooter>
@@ -478,6 +496,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
 
       {/* Content Creation & A La Carte */}
       <section className="py-24">
