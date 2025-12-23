@@ -588,7 +588,10 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className={`mt-10 w-full rounded-full ${pkg.featured ? "bg-black text-white hover:bg-zinc-800" : "bg-white text-black hover:bg-zinc-100"}`}>
+                  <Button 
+                    className={`mt-10 w-full rounded-full ${pkg.featured ? "bg-black text-white hover:bg-zinc-800" : "bg-white text-black hover:bg-zinc-100"}`}
+                    onClick={() => handleSelect({ name: pkg.title, price: pkg.price }, "Web Design")}
+                  >
                     Choose Plan
                   </Button>
                 </div>
