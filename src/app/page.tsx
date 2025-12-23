@@ -627,6 +627,66 @@ Please confirm my order.`;
           <div className="absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-indigo-500/10 blur-[120px] dark:bg-indigo-500/5" />
           <div className="absolute bottom-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-pink-500/10 blur-[120px] dark:bg-pink-500/5" />
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150" />
+          
+          {/* Floating Social Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[
+              { Icon: Instagram, color: "text-pink-500/20", size: 48, top: "15%", left: "10%", delay: 0 },
+              { Icon: Twitter, color: "text-blue-400/20", size: 40, top: "25%", left: "85%", delay: 1 },
+              { Icon: Music2Icon, color: "text-zinc-500/20", size: 56, top: "65%", left: "15%", delay: 2 },
+              { Icon: Facebook, color: "text-blue-600/20", size: 32, top: "75%", left: "80%", delay: 0.5 },
+              { Icon: Heart, color: "text-red-500/20", size: 24, top: "20%", left: "70%", delay: 1.5 },
+              { Icon: MessageCircle, color: "text-green-500/20", size: 36, top: "50%", left: "90%", delay: 0.8 },
+              { Icon: Share2, color: "text-indigo-500/20", size: 28, top: "10%", left: "40%", delay: 2.5 },
+              { Icon: Zap, color: "text-yellow-500/20", size: 32, top: "80%", left: "45%", delay: 1.2 },
+              { Icon: Youtube, color: "text-red-600/20", size: 44, top: "40%", left: "5%", delay: 3 },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                className={`absolute ${item.color}`}
+                style={{ top: item.top, left: item.left }}
+                animate={{
+                  y: [0, -20, 0],
+                  rotate: [0, 10, -10, 0],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 5 + Math.random() * 5,
+                  repeat: Infinity,
+                  delay: item.delay,
+                  ease: "easeInOut",
+                }}
+              >
+                <item.Icon size={item.size} strokeWidth={1.5} />
+              </motion.div>
+            ))}
+
+            {/* Floating UI Elements */}
+            <motion.div
+              className="absolute top-[35%] left-[75%] hidden lg:block"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex items-center gap-3">
+                <div className="h-8 w-8 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500" />
+                <div className="space-y-1">
+                  <div className="h-1.5 w-16 bg-zinc-200 dark:bg-zinc-700 rounded-full" />
+                  <div className="h-1 w-10 bg-zinc-100 dark:bg-zinc-800 rounded-full" />
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="absolute top-[55%] left-[65%] hidden lg:block"
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-lg flex items-center gap-2">
+                <Heart className="h-4 w-4 text-red-500 fill-red-500" />
+                <span className="text-[10px] font-black">2.4k</span>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         <div className="container relative z-10 mx-auto px-6 text-center">
