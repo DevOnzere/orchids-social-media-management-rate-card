@@ -122,6 +122,17 @@ const PLATFORMS = [
       { name: "Growth", price: "8,000", featured: true, features: ["50 pins per month", "6 idea pins per month", "Custom pin designs", "Board strategy", "Monthly analytics + insights"] },
       { name: "Professional", price: "14,000", features: ["75 pins per month", "12 idea pins per month", "Premium pin designs", "Complete profile optimization", "Shopping integration", "Detailed monthly analytics"] },
     ]
+  },
+  {
+    id: "extra",
+    name: "Extra Services",
+    icon: Sparkles,
+    color: "bg-indigo-600",
+    plans: [
+      { name: "Content Strategy", price: "15,000", features: ["Brand voice definition", "Content pillar mapping", "Monthly content calendar", "Competitor analysis", "Monthly strategy review"] },
+      { name: "Meta Ads Management", price: "20,000", features: ["Ad account setup", "A/B testing", "Conversion tracking", "Performance reporting", "Scaling strategy"] },
+      { name: "Professional Shoot", price: "12,000", features: ["High-res photography", "Product styling", "Color grading", "20 edited photos", "Studio or on-site"] },
+    ]
   }
 ];
 
