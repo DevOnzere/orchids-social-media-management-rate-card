@@ -547,15 +547,22 @@ export default function LandingPage() {
             transition={{ delay: 0.1, duration: 0.8 }}
             className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem]"
           >
-            CRAFTING{" "}
             <motion.span 
               animate={{ 
                 color: ["#4f46e5", "#ec4899", "#8b5cf6", "#4f46e5"],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            >
+              CRAFTING
+            </motion.span>{" "}
+            <motion.span 
+              animate={{ 
+                color: ["#8b5cf6", "#4f46e5", "#ec4899", "#8b5cf6"],
                 textShadow: [
-                  "0 0 20px rgba(79,70,229,0)", 
-                  "0 0 20px rgba(236,72,153,0.3)", 
-                  "0 0 20px rgba(139,92,246,0.3)",
-                  "0 0 20px rgba(79,70,229,0)"
+                  "0 0 20px rgba(139,92,246,0)", 
+                  "0 0 20px rgba(79,70,229,0.3)", 
+                  "0 0 20px rgba(236,72,153,0.3)",
+                  "0 0 20px rgba(139,92,246,0)"
                 ]
               }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
