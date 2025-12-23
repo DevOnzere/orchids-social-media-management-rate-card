@@ -511,11 +511,11 @@ export default function LandingPage() {
             <span className="text-xl font-black tracking-tighter">BRANDBOOST<span className="text-indigo-600">.KE</span></span>
           </div>
           <div className="hidden items-center gap-10 lg:flex">
-            <a href="#services" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Solutions</a>
-            <a href="#bundles" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Bundles</a>
-            <a href="#websites" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Design</a>
+            <a href="#services" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Management</a>
+            <a href="#bundles" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Combo Plans</a>
+            <a href="#websites" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Website Design</a>
             <a href="#faq" className="text-xs font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Help</a>
-            <Button size="sm" className="h-11 rounded-2xl px-8 font-black uppercase tracking-wider bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-500/20">Consult Now</Button>
+            <Button size="sm" className="h-11 rounded-2xl px-8 font-black uppercase tracking-wider bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-500/20" onClick={openWhatsApp}>Consult Now</Button>
           </div>
         </div>
       </nav>
