@@ -24,7 +24,14 @@ import {
   Calendar,
   Video,
   MousePointer2,
-  PhoneCall
+  PhoneCall,
+  Download,
+  CreditCard,
+  Bitcoin,
+  X,
+  User,
+  Mail,
+  Phone
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -33,125 +40,194 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
-
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const PLATFORMS = [
-  {
-    id: "instagram",
-    name: "Instagram",
-    icon: Instagram,
-    color: "bg-pink-500",
-    plans: [
-      { name: "Starter", price: "5,000", features: ["10 posts per month", "2 reels per month", "2 stories per month", "Basic graphics & captions", "Hashtag research", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "12,000", featured: true, features: ["20 posts per month", "8 reels per month", "12 stories per month", "Custom graphics & reels", "Daily community management (24h)", "Hashtag strategy", "Monthly analytics + insights"] },
-      { name: "Professional", price: "20,000", features: ["30 posts per month", "12 reels per month", "20 stories per month", "Premium content creation", "Real-time community management", "Influencer outreach support", "Detailed monthly analytics"] },
-    ]
-  },
-  {
-    id: "facebook",
-    name: "Facebook",
-    icon: Facebook,
-    color: "bg-blue-600",
-    plans: [
-      { name: "Starter", price: "4,500", features: ["10 posts per month", "2 videos per month", "2 stories per month", "Basic graphics & captions", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "10,000", featured: true, features: ["20 posts per month", "6 videos per month", "12 stories per month", "Event promotion support", "Daily community management", "Facebook groups engagement", "Monthly analytics + insights"] },
-      { name: "Professional", price: "18,000", features: ["30 posts per month", "10 videos per month", "20 stories per month", "Premium content creation", "Real-time community management", "Facebook ads consultation", "Detailed monthly analytics"] },
-    ]
-  },
-  {
-    id: "tiktok",
-    name: "TikTok",
-    icon: Music2Icon, // Replacing TikTok with Music2Icon as Lucide doesn't have it by default or use a custom one
-    color: "bg-black",
-    plans: [
-      { name: "Starter", price: "6,000", features: ["10 videos per month", "2 trending videos per month", "Trending audio research", "Hashtag optimization", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "13,000", featured: true, features: ["20 videos per month", "6 trending challenge videos", "Trend analysis & participation", "Daily community management", "Content strategy", "Monthly analytics + insights"] },
-      { name: "Professional", price: "22,000", features: ["30 videos per month", "10 trending challenge videos", "Advanced video editing", "Viral content strategy", "Real-time community management", "Influencer collaboration support", "Detailed monthly analytics"] },
-    ]
-  },
-  {
-    id: "youtube",
-    name: "YouTube",
-    icon: Youtube,
-    color: "bg-red-600",
-    plans: [
-      { name: "Starter", price: "10,000", features: ["2 videos per month", "2 YouTube Shorts", "Basic video editing", "SEO optimization", "Thumbnail design", "Community management", "Monthly analytics"] },
-      { name: "Growth", price: "20,000", featured: true, features: ["4 videos per month", "8 YouTube Shorts", "Professional video editing", "Advanced SEO optimization", "Custom thumbnails", "Playlist organization", "Daily community management", "Monthly analytics + growth strategy"] },
-      { name: "Professional", price: "35,000", features: ["8 videos per month", "16 YouTube Shorts", "Premium video production", "Complete channel optimization", "End screens & cards setup", "Real-time community management", "Sponsorship consultation", "Detailed monthly analytics"] },
-    ]
-  },
-  {
-    id: "linkedin",
-    name: "LinkedIn",
-    icon: Linkedin,
-    color: "bg-blue-700",
-    plans: [
-      { name: "Starter", price: "4,000", features: ["10 posts per month", "2 carousel posts", "Professional content writing", "Basic networking engagement", "Monthly analytics"] },
-      { name: "Growth", price: "10,000", featured: true, features: ["20 posts per month", "6 carousel posts", "2 articles per month", "Active networking & engagement", "Connection request management", "Monthly analytics + insights"] },
-      { name: "Professional", price: "18,000", features: ["30 posts per month", "10 carousel posts", "4 articles per month", "Thought leadership content", "Premium networking strategy", "LinkedIn ads consultation", "Detailed monthly analytics"] },
-    ]
-  },
-  {
-    id: "twitter",
-    name: "Twitter / X",
-    icon: Twitter,
-    color: "bg-zinc-900",
-    plans: [
-      { name: "Starter", price: "3,500", features: ["30 tweets per month", "2 threads per month", "Hashtag research", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "8,000", featured: true, features: ["60 tweets per month", "6 threads per month", "Daily community management", "Trending topics participation", "Monthly analytics + insights"] },
-      { name: "Professional", price: "15,000", features: ["90 tweets per month", "12 threads per month", "Real-time engagement", "Twitter Spaces coordination", "Crisis management", "Detailed monthly analytics"] },
-    ]
-  },
-  {
-    id: "pinterest",
-    name: "Pinterest",
-    icon: Pinterest,
-    color: "bg-red-500",
-    plans: [
-      { name: "Starter", price: "3,500", features: ["25 pins per month", "2 idea pins per month", "Board organization", "SEO optimization", "Monthly analytics"] },
-      { name: "Growth", price: "8,000", featured: true, features: ["50 pins per month", "6 idea pins per month", "Custom pin designs", "Board strategy", "Monthly analytics + insights"] },
-      { name: "Professional", price: "14,000", features: ["75 pins per month", "12 idea pins per month", "Premium pin designs", "Complete profile optimization", "Shopping integration", "Detailed monthly analytics"] },
-    ]
-  }
-];
-
-function Music2Icon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M9 18V5l12-2v13" />
-      <circle cx="6" cy="18" r="3" />
-      <circle cx="18" cy="16" r="3" />
-    </svg>
-  );
-}
+// ... (PLATFORMS and Music2Icon definitions)
 
 export default function LandingPage() {
+  const [selectedPackage, setSelectedPackage] = React.useState<any>(null);
+  const [checkoutStep, setCheckoutStep] = React.useState(1);
+  const [formData, setFormData] = React.useState({
+    businessName: "",
+    requirements: "",
+    socialHandle: "",
+    email: "",
+    whatsapp: "",
+  });
+
+  const handleSelect = (pkg: any, platformName?: string) => {
+    setSelectedPackage({ ...pkg, platform: platformName || "Bundle" });
+    setCheckoutStep(1);
+  };
+
+  const handleDownloadInvoice = () => {
+    window.print();
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-black selection:text-white dark:bg-zinc-950 dark:selection:bg-white dark:selection:text-black">
+      {/* Checkout Dialog */}
+      <Dialog open={!!selectedPackage} onOpenChange={(open) => !open && setSelectedPackage(null)}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          {checkoutStep === 1 && (
+            <div className="space-y-6">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-black uppercase">Service Details</DialogTitle>
+                <DialogDescription>
+                  Tell us more about your business for the <span className="font-bold text-black">{selectedPackage?.name}</span> package.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4 pt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="businessName">Business Name</Label>
+                  <Input 
+                    id="businessName" 
+                    placeholder="Enter your brand or business name" 
+                    value={formData.businessName}
+                    onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="requirements">Specific Requirements / Target Audience</Label>
+                  <Textarea 
+                    id="requirements" 
+                    placeholder="E.g. We focus on gen-z fashion, want a minimalist aesthetic..." 
+                    className="min-h-[100px]"
+                    value={formData.requirements}
+                    onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
+                  />
+                </div>
+                <Button className="w-full h-12 rounded-xl text-lg font-bold" onClick={() => setCheckoutStep(2)}>
+                  Next: Contact Info
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {checkoutStep === 2 && (
+            <div className="space-y-6">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-black uppercase">Contact & Socials</DialogTitle>
+                <DialogDescription>How should we reach you and which accounts are we managing?</DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4 pt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="handle">Social Media Handle (Primary)</Label>
+                  <Input 
+                    id="handle" 
+                    placeholder="@yourhandle" 
+                    value={formData.socialHandle}
+                    onChange={(e) => setFormData({ ...formData, socialHandle: e.target.value })}
+                  />
+                </div>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="hello@brand.com" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="whatsapp">WhatsApp Number</Label>
+                    <Input 
+                      id="whatsapp" 
+                      placeholder="+254..." 
+                      value={formData.whatsapp}
+                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                    />
+                  </div>
+                </div>
+                <div className="flex gap-4 pt-4">
+                  <Button variant="outline" className="flex-1 h-12 rounded-xl" onClick={() => setCheckoutStep(1)}>Back</Button>
+                  <Button className="flex-[2] h-12 rounded-xl text-lg font-bold" onClick={() => setCheckoutStep(3)}>Generate Invoice</Button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {checkoutStep === 3 && (
+            <div className="space-y-6">
+              <div id="invoice-capture" className="bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-3xl border-2 border-zinc-200 dark:border-zinc-800">
+                <div className="flex justify-between items-start mb-8">
+                  <div>
+                    <h2 className="text-2xl font-black uppercase tracking-tighter">Invoice</h2>
+                    <p className="text-sm text-zinc-500">#{Math.floor(100000 + Math.random() * 900000)}</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center justify-end gap-1 mb-1">
+                      <Zap className="h-4 w-4 fill-black dark:fill-white" />
+                      <span className="font-black text-sm">BRANDBOOST KE</span>
+                    </div>
+                    <p className="text-[10px] text-zinc-500">Nairobi, Kenya</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-8 mb-8 border-y py-6 border-zinc-200 dark:border-zinc-800">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-zinc-400 mb-2">Billed To</p>
+                    <p className="font-bold">{formData.businessName || "Valued Client"}</p>
+                    <p className="text-xs text-zinc-500">{formData.email}</p>
+                    <p className="text-xs text-zinc-500">{formData.whatsapp}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[10px] font-bold uppercase text-zinc-400 mb-2">Date</p>
+                    <p className="font-bold">{new Date().toLocaleDateString()}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  <div className="flex justify-between items-center pb-4 border-b border-zinc-100 dark:border-zinc-800">
+                    <div>
+                      <p className="font-bold uppercase text-sm">{selectedPackage?.platform} - {selectedPackage?.name}</p>
+                      <p className="text-xs text-zinc-500">Monthly management package</p>
+                    </div>
+                    <p className="font-black">KES {selectedPackage?.price}</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <span className="text-xl font-black uppercase">Total Due</span>
+                  <span className="text-3xl font-black">KES {selectedPackage?.price}</span>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <Button 
+                  variant="outline" 
+                  className="w-full h-12 rounded-xl gap-2 border-2" 
+                  onClick={handleDownloadInvoice}
+                >
+                  <Download className="h-4 w-4" />
+                  Download PDF Invoice
+                </Button>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <Button className="h-14 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white border-none gap-2">
+                    <Smartphone className="h-5 w-5" />
+                    Pay via M-Pesa
+                  </Button>
+                  <Button className="h-14 rounded-xl bg-orange-500 hover:bg-orange-600 text-white border-none gap-2">
+                    <Bitcoin className="h-5 w-5" />
+                    Pay with Crypto
+                  </Button>
+                </div>
+                
+                <p className="text-center text-[10px] text-zinc-500 uppercase font-bold tracking-widest">
+                  Secure checkout powered by BrandBoost
+                </p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
       {/* Header */}
       <nav className="fixed top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
