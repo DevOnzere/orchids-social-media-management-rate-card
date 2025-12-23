@@ -206,7 +206,7 @@ export default function LandingPage() {
     }, reverse ? 15 : 25);
 
     return () => clearTimeout(timeout);
-  }, [subIndex, wordIndex, reverse]);
+  }, [subIndex, wordIndex, reverse, mounted]);
 
   const handleSelect = (pkg: any, platformName?: string) => {
     setSelectedPackage({ ...pkg, platform: platformName || "Bundle" });
