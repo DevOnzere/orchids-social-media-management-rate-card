@@ -856,14 +856,12 @@ Please confirm my order.`;
             className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem] text-zinc-950"
           >
             <motion.span 
-              className="inline-block"
+              className="inline-block text-black dark:text-white"
               animate={{ 
                 rotate: [0.5, -0.5, 0.5],
-                color: ["#8b5cf6", "#4f46e5", "#ec4899", "#8b5cf6"],
               }}
               transition={{ 
                 rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                color: { duration: 5, repeat: Infinity, ease: "linear" }
               }}
             >
               CRAFTING
