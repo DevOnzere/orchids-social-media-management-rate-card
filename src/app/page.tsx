@@ -731,7 +731,7 @@ Please confirm my order.`;
                           <div className="flex items-baseline gap-1">
                             <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">KES</span>
                             <span className="text-5xl font-black tracking-tighter">{plan.price}</span>
-                            <span className="text-sm font-bold text-zinc-400">/MO</span>
+                            {!isExtraService && <span className="text-sm font-bold text-zinc-400">/MO</span>}
                           </div>
                         </CardHeader>
                         <CardContent className="flex-grow p-8 pt-0">
