@@ -177,6 +177,31 @@ export default function LandingPage() {
     btcAddress: "",
   });
 
+  // Typewriter effect logic
+  const words = ["BRANDS.", "LEGACIES.", "FUTURES.", "IDENTITIES.", "IMPACT."];
+  const [wordIndex, setWordIndex] = React.useState(0);
+  const [subIndex, setSubIndex] = React.useState(0);
+  const [reverse, setReverse] = React.useState(false);
+
+  React.useEffect(() => {
+    if (subIndex === words[wordIndex].length + 1 && !reverse) {
+      setTimeout(() => setReverse(true), 1500);
+      return;
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setWordIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, reverse ? 75 : 150);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, wordIndex, reverse]);
+
   const handleSelect = (pkg: any, platformName?: string) => {
     setSelectedPackage({ ...pkg, platform: platformName || "Bundle" });
     setCheckoutStep(1);
