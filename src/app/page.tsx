@@ -161,6 +161,7 @@ function Music2Icon(props: React.SVGProps<SVGSVGElement>) {
 
 export default function LandingPage() {
   const [selectedPackage, setSelectedPackage] = React.useState<any>(null);
+  const [isConsultOpen, setIsConsultOpen] = React.useState(false);
   const [checkoutStep, setCheckoutStep] = React.useState(1);
   const [paymentMethod, setPaymentMethod] = React.useState<"mpesa" | "crypto" | null>(null);
   const [formData, setFormData] = React.useState({
