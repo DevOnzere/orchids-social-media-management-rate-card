@@ -367,16 +367,42 @@ export default function LandingPage() {
               </div>
 
               {paymentMethod === "mpesa" && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-3 p-6 rounded-3xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/20">
-                  <Label htmlFor="mpesaNumber" className="text-xs font-bold uppercase tracking-wider text-green-700 dark:text-green-400">M-Pesa Phone Number</Label>
-                  <Input 
-                    id="mpesaNumber" 
-                    placeholder="07XX XXX XXX" 
-                    className="h-12 rounded-xl border-green-200 focus:ring-green-500 bg-white dark:bg-zinc-900"
-                    value={formData.mpesaNumber}
-                    onChange={(e) => setFormData({ ...formData, mpesaNumber: e.target.value })}
-                  />
-                  <p className="text-[10px] font-medium text-green-600/70 uppercase">You will receive an STK push to complete the payment.</p>
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-4 p-6 rounded-3xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/20">
+                  <div className="space-y-2">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-green-800 dark:text-green-300">Option 1: Lipa na M-Pesa</p>
+                    <div className="flex justify-between items-center p-3 bg-white dark:bg-zinc-900 rounded-xl border border-green-200">
+                      <div>
+                        <p className="text-[8px] font-bold text-zinc-400 uppercase">Paybill Number</p>
+                        <p className="text-sm font-black text-green-700">714777</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[8px] font-bold text-zinc-400 uppercase">Account Number</p>
+                        <p className="text-sm font-black text-green-700">0759015580</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-green-800 dark:text-green-300">Option 2: Send Money</p>
+                    <div className="flex justify-between items-center p-3 bg-white dark:bg-zinc-900 rounded-xl border border-green-200">
+                      <div>
+                        <p className="text-[8px] font-bold text-zinc-400 uppercase">Phone Number</p>
+                        <p className="text-sm font-black text-green-700">0759015580</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="mpesaNumber" className="text-xs font-bold uppercase tracking-wider text-green-700 dark:text-green-400">Transaction Code / Message</Label>
+                    <Input 
+                      id="mpesaNumber" 
+                      placeholder="Enter M-Pesa transaction code" 
+                      className="h-12 rounded-xl border-green-200 focus:ring-green-500 bg-white dark:bg-zinc-900"
+                      value={formData.mpesaNumber}
+                      onChange={(e) => setFormData({ ...formData, mpesaNumber: e.target.value })}
+                    />
+                    <p className="text-[8px] font-medium text-green-600/70 uppercase">Please enter the transaction code from your M-Pesa message.</p>
+                  </div>
                 </motion.div>
               )}
 
