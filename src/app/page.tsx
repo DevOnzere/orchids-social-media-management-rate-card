@@ -196,6 +196,11 @@ export default function LandingPage() {
     window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
   };
 
+  const bookStrategyCall = () => {
+    const url = "https://wa.me/254759015580?text=Hello BrandBoost, I would like to book a strategy call for my business.";
+    window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
+  };
+
   const isWebOrProfessional = selectedPackage?.platform === "Web Design" || selectedPackage?.name?.includes("Professional") || selectedPackage?.name?.includes("Complete") || selectedPackage?.name?.includes("Business Website") || selectedPackage?.name?.includes("E-Commerce");
 
   return (
