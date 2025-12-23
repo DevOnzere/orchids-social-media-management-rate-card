@@ -185,7 +185,7 @@ export default function LandingPage() {
 
   React.useEffect(() => {
     if (subIndex === words[wordIndex].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 800);
+      setTimeout(() => setReverse(true), 400);
       return;
     }
 
@@ -197,7 +197,7 @@ export default function LandingPage() {
 
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, reverse ? 30 : 60);
+    }, reverse ? 20 : 40);
 
     return () => clearTimeout(timeout);
   }, [subIndex, wordIndex, reverse]);
