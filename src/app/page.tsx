@@ -621,184 +621,96 @@ Please confirm my order.`;
       </nav>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20 bg-white dark:bg-zinc-950">
+      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20 bg-white">
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10 bg-white">
           {/* Professional Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.08] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]">
+          <div className="absolute inset-0 opacity-[0.1] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
                   <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#hero-grid)" className="text-zinc-900 dark:text-white" />
+              <rect width="100%" height="100%" fill="url(#hero-grid)" className="text-zinc-900" />
             </svg>
           </div>
 
-          {/* Grain Overlay for Premium Feel */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
-          {/* Dynamic Background Orbs */}
+          {/* Premium Animated Orbs - Brighter for Light Mode */}
           <motion.div 
             animate={{ 
               scale: [1, 1.2, 1],
-              x: [0, 50, 0],
-              y: [0, -30, 0],
+              x: [0, 80, 0],
+              y: [0, -40, 0],
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[5%] left-[10%] h-[700px] w-[700px] rounded-full bg-indigo-500/15 blur-[120px]" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1.3, 1, 1.3],
+              x: [0, -80, 0],
+              y: [0, 40, 0],
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] left-[15%] h-[600px] w-[600px] rounded-full bg-indigo-500/30 blur-[120px]" 
+            className="absolute bottom-[5%] right-[10%] h-[700px] w-[700px] rounded-full bg-pink-500/10 blur-[120px]" 
           />
-          <motion.div 
-            animate={{ 
-              scale: [1.2, 1, 1.2],
-              x: [0, -50, 0],
-              y: [0, 30, 0],
-            }}
-            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[10%] right-[15%] h-[600px] w-[600px] rounded-full bg-pink-500/20 blur-[120px]" 
-          />
-          <motion.div 
-            animate={{ 
-              opacity: [0.1, 0.3, 0.1],
-              scale: [0.8, 1, 0.8],
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[40%] left-[45%] h-[400px] w-[400px] rounded-full bg-purple-500/20 blur-[100px]" 
-          />
-          
-          {/* Floating Social Elements - More Exciting & Visible */}
+
+          {/* Iconic Social Logos - Large, subtle, floating behind the text */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+            <motion.div
+              animate={{ y: [0, -40, 0], rotate: [0, 10, 0] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute top-[20%] left-[15%] text-indigo-200"
+            >
+              <Instagram className="h-48 w-48" />
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, 40, 0], rotate: [0, -10, 0] }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute bottom-[20%] right-[15%] text-pink-200"
+            >
+              <Music2Icon className="h-40 w-40" />
+            </motion.div>
+            <motion.div
+              animate={{ x: [0, 30, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+              className="absolute top-[50%] right-[10%] text-blue-100"
+            >
+              <Twitter className="h-32 w-32" />
+            </motion.div>
+          </div>
+
+          {/* Interactive 'Like' Particles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {/* Drifting 'Like' Hearts */}
-            {[...Array(6)].map((_, i) => (
+            {[...Array(10)].map((_, i) => (
               <motion.div
-                key={`heart-${i}`}
+                key={`bubble-${i}`}
                 initial={{ 
                   x: Math.random() * 100 + "%", 
                   y: "110%", 
                   opacity: 0,
-                  scale: 0.5 
+                  scale: 0.2
                 }}
                 animate={{ 
                   y: "-10%", 
-                  opacity: [0, 0.8, 0],
+                  opacity: [0, 1, 0],
                   x: (Math.random() * 100 - 50) + "px",
-                  rotate: Math.random() * 45 - 22.5
+                  scale: [0.2, 1, 0.5]
                 }}
                 transition={{ 
-                  duration: 8 + Math.random() * 10, 
+                  duration: 6 + Math.random() * 8, 
                   repeat: Infinity, 
                   delay: Math.random() * 10,
-                  ease: "linear"
+                  ease: "easeOut"
                 }}
-                className="absolute text-pink-500/40"
+                className="absolute"
               >
-                <Heart className="h-8 w-8 fill-current" />
+                <div className="bg-pink-500 rounded-full p-2 shadow-lg">
+                  <Heart className="h-4 w-4 text-white fill-current" />
+                </div>
               </motion.div>
             ))}
-
-            {/* Drifting 'Plus' / Sparkle icons */}
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={`sparkle-${i}`}
-                initial={{ 
-                  x: Math.random() * 100 + "%", 
-                  y: Math.random() * 100 + "%", 
-                  opacity: 0 
-                }}
-                animate={{ 
-                  opacity: [0, 0.5, 0],
-                  scale: [0.5, 1.2, 0.5],
-                  rotate: [0, 180, 360]
-                }}
-                transition={{ 
-                  duration: 5 + Math.random() * 5, 
-                  repeat: Infinity, 
-                  delay: Math.random() * 5 
-                }}
-                className="absolute text-indigo-400/30"
-              >
-                <Sparkles className="h-6 w-6" />
-              </motion.div>
-            ))}
-
-            {/* Floating UI Snapshots - Layered behind */}
-            <motion.div
-              initial={{ x: -200, opacity: 0, rotate: -10 }}
-              animate={{ x: 0, opacity: 0.6, rotate: -5 }}
-              transition={{ delay: 0.4, duration: 1.5 }}
-              style={{ top: '15%', left: '8%' }}
-              className="absolute hidden 2xl:block"
-            >
-              <div className="w-64 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md p-4 rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500" />
-                  <div className="space-y-1.5">
-                    <div className="h-2 w-20 bg-zinc-400/30 rounded-full" />
-                    <div className="h-1.5 w-12 bg-zinc-400/20 rounded-full" />
-                  </div>
-                </div>
-                <div className="aspect-[4/3] rounded-2xl bg-zinc-200/50 dark:bg-zinc-800/50 mb-3 flex items-center justify-center">
-                  <ImageIcon  className="h-10 w-10 text-zinc-400/50" />
-                </div>
-                <div className="flex gap-3">
-                  <div className="h-2 w-full bg-zinc-300/30 rounded-full" />
-                  <div className="h-2 w-1/2 bg-zinc-300/20 rounded-full" />
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ x: 200, opacity: 0, rotate: 10 }}
-              animate={{ x: 0, opacity: 0.6, rotate: 5 }}
-              transition={{ delay: 0.6, duration: 1.5 }}
-              style={{ bottom: '20%', right: '8%' }}
-              className="absolute hidden 2xl:block"
-            >
-              <div className="w-60 bg-zinc-900/60 backdrop-blur-md p-4 rounded-3xl border border-white/10 shadow-2xl">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="h-8 w-8 rounded-full bg-white/20" />
-                  <div className="h-4 w-12 bg-indigo-500/40 rounded-full" />
-                </div>
-                <div className="space-y-2 mb-4">
-                  <div className="h-2 w-full bg-white/10 rounded-full" />
-                  <div className="h-2 w-3/4 bg-white/10 rounded-full" />
-                  <div className="h-2 w-1/2 bg-white/10 rounded-full" />
-                </div>
-                <div className="flex justify-between items-center text-white/30">
-                  <div className="flex gap-2">
-                    <Heart className="h-4 w-4" />
-                    <MessageCircle className="h-4 w-4" />
-                  </div>
-                  <Share2 className="h-4 w-4" />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Floating Metric Tags */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              style={{ top: '45%', left: '15%' }}
-              className="absolute hidden lg:block bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl px-4 py-2 rounded-full border border-indigo-100 dark:border-zinc-800 shadow-xl"
-            >
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-600 dark:text-zinc-400">Live Growth: +12.4k</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              style={{ top: '35%', right: '20%' }}
-              className="absolute hidden lg:block bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl px-4 py-2 rounded-full border border-pink-100 dark:border-zinc-800 shadow-xl"
-            >
-              <div className="flex items-center gap-2">
-                <TrendingUp className="h-3 w-3 text-pink-500" />
-                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-600 dark:text-zinc-400">Trending Now</span>
-              </div>
-            </motion.div>
           </div>
         </div>
 
@@ -808,7 +720,7 @@ Please confirm my order.`;
             animate={{ opacity: 1, y: 0 }}
             className="mb-8 flex justify-center"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border-2 border-indigo-100 bg-indigo-50/50 px-5 py-2 text-indigo-700 backdrop-blur-md dark:border-indigo-900/30 dark:bg-indigo-900/20 dark:text-indigo-300">
+            <div className="inline-flex items-center gap-2 rounded-full border-2 border-indigo-100 bg-white px-5 py-2 text-indigo-700 shadow-xl backdrop-blur-md">
               <Sparkles className="h-4 w-4" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em]">Kenya's Creative Powerhouse</span>
             </div>
@@ -818,34 +730,34 @@ Please confirm my order.`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem] dark:text-white"
+            className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem] text-zinc-950"
           >
             <motion.span 
               animate={{ 
                 color: ["#4f46e5", "#ec4899", "#8b5cf6", "#4f46e5"],
               }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
             >
               CRAFTING
             </motion.span>{" "}
             <motion.span 
+              className="inline-block"
               animate={{ 
-                color: ["#8b5cf6", "#4f46e5", "#ec4899", "#8b5cf6"],
-                textShadow: [
-                  "0 0 30px rgba(139,92,246,0)", 
-                  "0 0 30px rgba(79,70,229,0.4)", 
-                  "0 0 30px rgba(236,72,153,0.4)",
-                  "0 0 30px rgba(139,92,246,0)"
-                ]
+                rotate: [-0.5, 0.5, -0.5],
               }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               ICONIC
             </motion.span>{" "}
             <br />
-            <span className="inline-block relative">
+            <span className="relative">
               DIGITAL
-              <div className="absolute -bottom-2 left-0 h-4 w-full bg-indigo-500/20 -rotate-1 rounded-full" />
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 1, duration: 0.8 }}
+                className="absolute -bottom-4 left-0 h-6 bg-indigo-500/10 -z-10" 
+              />
             </span> BRANDS.
           </motion.h1>
           
@@ -853,9 +765,9 @@ Please confirm my order.`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="mx-auto mt-12 max-w-2xl text-lg font-medium leading-relaxed text-zinc-500 dark:text-zinc-400 md:text-xl"
+            className="mx-auto mt-14 max-w-2xl text-lg font-bold leading-relaxed text-zinc-600 md:text-xl"
           >
-            We don't just manage social media; we build legacies. High-impact content, professional web engineering, and strategic growth for the modern Kenyan business.
+            Building high-impact digital legacies. Professional social management, creative content, and high-performance web engineering.
           </motion.p>
           
           <motion.div
@@ -866,13 +778,13 @@ Please confirm my order.`;
           >
             <Button 
               size="lg" 
-              className="h-16 rounded-[2rem] px-10 text-lg font-black uppercase tracking-wider bg-indigo-600 hover:bg-indigo-700 text-white shadow-2xl shadow-indigo-500/40 transition-all hover:-translate-y-1"
+              className="h-20 rounded-full px-12 text-xl font-black uppercase tracking-wider bg-zinc-950 text-white hover:bg-zinc-800 shadow-2xl transition-all hover:scale-105 active:scale-95"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Explore Services
-              <ArrowRight className="ml-3 h-5 w-5" />
+              <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
-            <Button size="lg" variant="outline" className="h-16 rounded-[2rem] border-2 border-zinc-200 px-10 text-lg font-black uppercase tracking-wider backdrop-blur-xl transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:text-white" onClick={openWhatsApp}>
+            <Button size="lg" variant="outline" className="h-20 rounded-full border-4 border-zinc-950 px-12 text-xl font-black uppercase tracking-wider hover:bg-zinc-50 transition-all hover:scale-105 active:scale-95" onClick={openWhatsApp}>
               WhatsApp Us
             </Button>
           </motion.div>
