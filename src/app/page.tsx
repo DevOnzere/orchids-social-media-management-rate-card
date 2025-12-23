@@ -743,20 +743,17 @@ Please confirm my order.`;
             transition={{ delay: 0.1, duration: 0.8 }}
             className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem] text-zinc-950"
           >
-            <motion.span 
-              animate={{ 
-                color: ["#4f46e5", "#ec4899", "#8b5cf6", "#4f46e5"],
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-            >
-              CRAFTING
-            </motion.span>{" "}
+            CRAFTING{" "}
             <motion.span 
               className="inline-block"
               animate={{ 
                 rotate: [-0.5, 0.5, -0.5],
+                color: ["#4f46e5", "#ec4899", "#8b5cf6", "#4f46e5"],
               }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ 
+                rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                color: { duration: 5, repeat: Infinity, ease: "linear" }
+              }}
             >
               ICONIC
             </motion.span>{" "}
