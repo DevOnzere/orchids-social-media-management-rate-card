@@ -704,6 +704,54 @@ Please confirm my order.`;
                 </div>
               </motion.div>
 
+              {/* NEW: Performance Stats Bubble */}
+              <motion.div
+                animate={{ 
+                  y: [0, 30, 0],
+                  x: [0, 40, 0],
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute top-[15%] left-[20%] z-0"
+              >
+                <div className="bg-white/60 backdrop-blur-lg p-3 rounded-2xl shadow-xl border border-white/40 flex items-center gap-3 w-48">
+                  <div className="h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center text-white">
+                    <Zap className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-[8px] font-black uppercase text-zinc-400">Conversion</p>
+                    <p className="text-xs font-black text-zinc-900">4.8% Increase</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* NEW: Reach Card */}
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 2, 0],
+                }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-[20%] right-[20%] z-0"
+              >
+                <div className="bg-white/70 backdrop-blur-md p-4 rounded-[2rem] shadow-2xl border border-white/60 flex flex-col gap-2 w-40">
+                  <div className="flex justify-between items-center">
+                    <div className="h-6 w-6 rounded-lg bg-pink-100 flex items-center justify-center text-pink-600">
+                      <Share2 className="h-3 w-3" />
+                    </div>
+                    <span className="text-[8px] font-black text-pink-500">LIVE</span>
+                  </div>
+                  <p className="text-[10px] font-bold text-zinc-400 uppercase">Weekly Reach</p>
+                  <p className="text-lg font-black text-zinc-900">854K</p>
+                  <div className="h-1 w-full bg-zinc-100 rounded-full overflow-hidden">
+                    <motion.div 
+                      animate={{ width: ["20%", "85%", "60%"] }}
+                      transition={{ duration: 5, repeat: Infinity }}
+                      className="h-full bg-pink-500" 
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
               <motion.div
                 animate={{ 
                   y: [0, 40, 0],
