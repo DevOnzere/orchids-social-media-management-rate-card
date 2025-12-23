@@ -935,7 +935,7 @@ export default function LandingPage() {
                 </div>
               </div>
               
-              <Button size="lg" className="h-20 w-full lg:w-auto rounded-[2rem] px-12 text-xl font-black uppercase tracking-wider bg-black text-white hover:bg-zinc-900 shadow-2xl" onClick={() => handleSelect({ name: "E-Commerce Starter", price: "80,000" }, "Combo")}>
+              <Button size="lg" className="h-20 w-full lg:w-auto rounded-[2rem] px-12 text-xl font-black uppercase tracking-wider bg-black text-white hover:bg-zinc-900 shadow-2xl" onClick={() => handleSelect({ name: "E-Commerce Elite", price: "80,000" }, "Combo")}>
                 Claim This Offer
               </Button>
             </div>
