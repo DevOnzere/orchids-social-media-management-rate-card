@@ -159,8 +159,7 @@ const PLATFORMS = [
         { name: "Thumbnails", price: "500", features: ["High CTR designs", "A/B testing support", "Custom branding", "Fast 24h delivery"] },
       ]
     }
-  ];
-}
+];
 
 export default function LandingPage() {
   const [selectedPackage, setSelectedPackage] = React.useState<any>(null);
