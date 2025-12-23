@@ -655,7 +655,11 @@ Please confirm my order.`;
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mt-16 flex flex-col items-center justify-center gap-6 sm:flex-row"
           >
-            <Button size="lg" className="h-16 rounded-[2rem] px-10 text-lg font-black uppercase tracking-wider bg-indigo-600 hover:bg-indigo-700 text-white shadow-2xl shadow-indigo-500/40 transition-all hover:-translate-y-1">
+            <Button 
+              size="lg" 
+              className="h-16 rounded-[2rem] px-10 text-lg font-black uppercase tracking-wider bg-indigo-600 hover:bg-indigo-700 text-white shadow-2xl shadow-indigo-500/40 transition-all hover:-translate-y-1"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Explore Services
               <ArrowRight className="ml-3 h-5 w-5" />
             </Button>
