@@ -11,6 +11,8 @@ import {
   Youtube, 
   Pin as Pinterest, 
   MessageCircle, 
+  Heart,
+  Share2,
   Zap, 
   CheckCircle2, 
   Globe, 
