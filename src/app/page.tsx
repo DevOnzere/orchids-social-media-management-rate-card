@@ -686,14 +686,21 @@ export default function LandingPage() {
                     </ul>
                   </div>
                   
-                  <div className="flex flex-col items-center justify-center rounded-3xl bg-zinc-50 p-8 dark:bg-zinc-900 md:w-48">
-                    <span className="text-xs font-bold text-zinc-500 uppercase">Package Price</span>
-                    <div className="flex items-baseline gap-1 mt-1">
-                      <span className="text-xs font-bold uppercase">KES</span>
-                      <span className="text-4xl font-black">{combo.price}</span>
+                    <div className="flex flex-col items-center justify-center rounded-3xl bg-zinc-50 p-8 dark:bg-zinc-900 md:w-48">
+                      <span className="text-xs font-bold text-zinc-500 uppercase">Package Price</span>
+                      <div className="flex items-baseline gap-1 mt-1">
+                        <span className="text-xs font-bold uppercase">KES</span>
+                        <span className="text-4xl font-black">{combo.price}</span>
+                      </div>
+                      <Button 
+                        className="mt-6 w-full rounded-2xl font-black uppercase tracking-tighter" 
+                        variant={combo.featured ? "default" : "outline"}
+                        onClick={() => handleSelect({ name: combo.title, price: combo.price }, "Combo")}
+                      >
+                        Buy Now
+                      </Button>
                     </div>
-                    <Button className="mt-6 w-full rounded-2xl" variant={combo.featured ? "default" : "outline"}>Buy Now</Button>
-                  </div>
+
                 </div>
               </motion.div>
             ))}
