@@ -203,7 +203,25 @@ export default function LandingPage() {
     window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
   };
 
+  const handleConfirmPayment = () => {
+    const message = `Hello BrandBoost, I have made a payment for the ${selectedPackage?.platform} - ${selectedPackage?.name} package.
+    
+Business Name: ${formData.businessName || "N/A"}
+Email: ${formData.email || "N/A"}
+WhatsApp: ${formData.whatsapp || "N/A"}
+Social Handle: ${formData.socialHandle || "N/A"}
+Transaction Code: ${formData.mpesaNumber || "N/A"}
+Specifications: ${formData.specifications.join(", ") || "None"}
+Requirements: ${formData.requirements || "None"}
+
+Please confirm my order.`;
+
+    const url = `https://wa.me/254759015580?text=${encodeURIComponent(message)}`;
+    window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
+  };
+
   const isWebOrElite = selectedPackage?.platform === "Web Design" || selectedPackage?.name?.includes("Elite") || selectedPackage?.name?.includes("Complete") || selectedPackage?.name?.includes("Business Website") || selectedPackage?.name?.includes("E-Commerce");
+  const isExtraService = selectedPackage?.platform === "Extra Services";
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-500 selection:text-white dark:bg-zinc-950 dark:selection:bg-indigo-400">
