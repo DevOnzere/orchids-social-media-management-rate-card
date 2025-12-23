@@ -201,7 +201,7 @@ export default function LandingPage() {
     window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
   };
 
-  const isWebOrProfessional = selectedPackage?.platform === "Web Design" || selectedPackage?.name?.includes("Professional") || selectedPackage?.name?.includes("Complete") || selectedPackage?.name?.includes("Business Website") || selectedPackage?.name?.includes("E-Commerce");
+  const isWebOrElite = selectedPackage?.platform === "Web Design" || selectedPackage?.name?.includes("Elite") || selectedPackage?.name?.includes("Complete") || selectedPackage?.name?.includes("Business Website") || selectedPackage?.name?.includes("E-Commerce");
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-500 selection:text-white dark:bg-zinc-950 dark:selection:bg-indigo-400">
@@ -232,7 +232,7 @@ export default function LandingPage() {
                   />
                 </div>
 
-                {isWebOrProfessional && (
+                {isWebOrElite && (
                   <div className="space-y-3 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
                     <Label className="text-xs font-bold uppercase tracking-wider opacity-60">Select Specifications (Optional)</Label>
                     <div className="grid grid-cols-2 gap-2">
