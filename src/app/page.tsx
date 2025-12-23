@@ -514,24 +514,24 @@ Please confirm my order.`;
                       <p className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Digital Solutions</p>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <h2 className="text-2xl font-black uppercase tracking-tighter bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">Invoice</h2>
-                    <p className="text-[10px] font-bold text-zinc-400">#{Math.floor(100000 + Math.random() * 900000)}</p>
+                    <div className="text-right">
+                      <h2 className="text-2xl font-black uppercase tracking-tighter bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">Invoice</h2>
+                      <p className="text-[10px] font-bold text-zinc-400">#{mounted ? Math.floor(100000 + Math.random() * 900000) : "000000"}</p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="grid grid-cols-2 gap-8 mb-10 border-y py-8 border-zinc-100 dark:border-zinc-800 relative z-10">
-                  <div>
-                    <p className="text-[10px] font-bold uppercase text-indigo-500 mb-3 tracking-widest">Client Details</p>
-                    <p className="font-black text-lg leading-none mb-1">{formData.businessName || "Valued Client"}</p>
-                    <p className="text-xs text-zinc-500 mb-0.5">{formData.email}</p>
-                    <p className="text-xs text-zinc-500">{formData.whatsapp}</p>
-                    {formData.socialHandle && <p className="text-[10px] mt-2 font-bold text-pink-500">@{formData.socialHandle}</p>}
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[10px] font-bold uppercase text-indigo-500 mb-3 tracking-widest">Issue Date</p>
-                    <p className="font-black text-lg leading-none">{new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
-                    <div className="mt-4 pt-4 border-t border-zinc-50 dark:border-zinc-800/50">
+                  <div className="grid grid-cols-2 gap-8 mb-10 border-y py-8 border-zinc-100 dark:border-zinc-800 relative z-10">
+                    <div>
+                      <p className="text-[10px] font-bold uppercase text-indigo-500 mb-3 tracking-widest">Client Details</p>
+                      <p className="font-black text-lg leading-none mb-1">{formData.businessName || "Valued Client"}</p>
+                      <p className="text-xs text-zinc-500 mb-0.5">{formData.email}</p>
+                      <p className="text-xs text-zinc-500">{formData.whatsapp}</p>
+                      {formData.socialHandle && <p className="text-[10px] mt-2 font-bold text-pink-500">@{formData.socialHandle}</p>}
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[10px] font-bold uppercase text-indigo-500 mb-3 tracking-widest">Issue Date</p>
+                      <p className="font-black text-lg leading-none">{mounted ? new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' }) : "Loading..."}</p>
+                      <div className="mt-4 pt-4 border-t border-zinc-50 dark:border-zinc-800/50">
                       <p className="text-[10px] font-bold uppercase text-zinc-400 mb-1 tracking-widest">Payment Method</p>
                       <Badge variant="outline" className="text-[10px] font-black uppercase border-indigo-200 text-indigo-600 bg-indigo-50/50">
                         {paymentMethod}
