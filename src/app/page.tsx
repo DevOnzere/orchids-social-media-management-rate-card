@@ -929,11 +929,11 @@ export default function LandingPage() {
 
             <h2 className="relative z-10 text-6xl lg:text-[9rem] font-black tracking-tighter uppercase leading-[0.8] mb-12">LEAVE YOUR <br /> <span className="text-indigo-500">MARK.</span></h2>
             <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button size="lg" className="h-20 w-full sm:w-auto rounded-full bg-indigo-600 px-12 text-xl font-black uppercase tracking-wider hover:bg-indigo-700 shadow-2xl shadow-indigo-500/40">
+              <Button size="lg" className="h-20 w-full sm:w-auto rounded-full bg-indigo-600 px-12 text-xl font-black uppercase tracking-wider hover:bg-indigo-700 shadow-2xl shadow-indigo-500/40" onClick={openWhatsApp}>
                 <MessageCircle className="mr-3 h-7 w-7 fill-current" />
                 WhatsApp Us
               </Button>
-              <Button size="lg" variant="outline" className="h-20 w-full sm:w-auto rounded-full border-2 border-white/20 px-12 text-xl font-black uppercase tracking-wider backdrop-blur-xl hover:bg-white/10 dark:border-black/20 dark:hover:bg-black/10">
+              <Button size="lg" variant="outline" className="h-20 w-full sm:w-auto rounded-full border-2 border-white/20 px-12 text-xl font-black uppercase tracking-wider backdrop-blur-xl hover:bg-white/10 dark:border-black/20 dark:hover:bg-black/10" onClick={openWhatsApp}>
                 Book a Strategy Call
               </Button>
             </div>
