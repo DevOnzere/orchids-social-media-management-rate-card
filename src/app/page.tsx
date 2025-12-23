@@ -707,13 +707,13 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Bundles Section - Refined for "Iconic" look */}
+      {/* Combo Plans Section - Refined for "Iconic" look */}
       <section id="bundles" className="py-32 bg-zinc-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="mb-24 flex flex-col items-center text-center">
             <Badge className="mb-6 bg-indigo-500 px-6 py-1.5 text-[10px] font-black uppercase tracking-[0.3em]">Efficiency Optimized</Badge>
-            <h2 className="font-heading text-5xl font-black tracking-tighter md:text-7xl">HYPER-BUNDLES</h2>
+            <h2 className="font-heading text-5xl font-black tracking-tighter md:text-7xl uppercase">HYPER-COMBO PLANS</h2>
             <p className="mt-6 text-zinc-400 text-lg max-w-2xl">Maximum dominance across multiple digital channels with reduced friction and higher savings.</p>
           </div>
 
@@ -781,9 +781,9 @@ export default function LandingPage() {
                   <CardFooter className="px-8 pb-10">
                     <Button 
                       className={`h-16 w-full rounded-[1.5rem] text-xs font-black uppercase tracking-[0.2em] transition-all hover:scale-[1.02] active:scale-95 ${bundle.featured ? "bg-white text-black hover:bg-zinc-100" : "bg-zinc-800 text-white hover:bg-zinc-700"}`} 
-                      onClick={() => handleSelect({ name: bundle.title, price: bundle.price })}
+                      onClick={() => handleSelect({ name: bundle.title, price: bundle.price }, "Combo Plan")}
                     >
-                      Deploy Bundle
+                      Deploy Plan
                     </Button>
                   </CardFooter>
                 </Card>
