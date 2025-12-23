@@ -739,7 +739,7 @@ Please confirm my order.`;
                   </div>
                 </div>
                 <div className="aspect-[4/3] rounded-2xl bg-zinc-200/50 dark:bg-zinc-800/50 mb-3 flex items-center justify-center">
-                  <Image  className="h-10 w-10 text-zinc-400/50" />
+                  <ImageIcon  className="h-10 w-10 text-zinc-400/50" />
                 </div>
                 <div className="flex gap-3">
                   <div className="h-2 w-full bg-zinc-300/30 rounded-full" />
