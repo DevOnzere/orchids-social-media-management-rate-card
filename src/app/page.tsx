@@ -162,6 +162,7 @@ const PLATFORMS = [
 ];
 
 export default function LandingPage() {
+  const [mounted, setMounted] = React.useState(false);
   const [selectedPackage, setSelectedPackage] = React.useState<any>(null);
   const [isConsultOpen, setIsConsultOpen] = React.useState(false);
   const [checkoutStep, setCheckoutStep] = React.useState(1);
@@ -184,6 +185,11 @@ export default function LandingPage() {
   const [reverse, setReverse] = React.useState(false);
 
   React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (!mounted) return;
     if (subIndex === words[wordIndex].length + 1 && !reverse) {
       setTimeout(() => setReverse(true), 1200);
       return;
