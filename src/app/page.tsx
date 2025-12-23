@@ -85,7 +85,7 @@ const PLATFORMS = [
     icon: Youtube,
     color: "bg-red-600",
     plans: [
-      { name: "Starter", price: "10,000", features: ["2 videos per month", "2 YouTube Shorts", "Basic video editing", "SEO optimization", "Thumbnail design", "Community management", "Monthly analytics"] },
+      { name: "Starter", price: "10,000", features: ["4 videos per month", "4 YouTube Shorts", "Professional video editing", "SEO optimization", "4 Professional Thumbnails", "Growth Strategy", "Community management", "Monthly analytics"] },
       { name: "Growth", price: "20,000", featured: true, features: ["4 videos per month", "8 YouTube Shorts", "Professional video editing", "Advanced SEO optimization", "Custom thumbnails", "Playlist organization", "Daily community management", "Monthly analytics + growth strategy"] },
       { name: "Professional", price: "35,000", features: ["8 videos per month", "16 YouTube Shorts", "Premium video production", "Complete channel optimization", "End screens & cards setup", "Real-time community management", "Sponsorship consultation", "Detailed monthly analytics"] },
     ]
