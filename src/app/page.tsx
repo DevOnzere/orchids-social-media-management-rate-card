@@ -191,6 +191,11 @@ export default function LandingPage() {
     window.print();
   };
 
+  const openWhatsApp = () => {
+    const url = "https://wa.me/254759015580";
+    window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
+  };
+
   const isWebOrProfessional = selectedPackage?.platform === "Web Design" || selectedPackage?.name?.includes("Professional") || selectedPackage?.name?.includes("Complete") || selectedPackage?.name?.includes("Business Website") || selectedPackage?.name?.includes("E-Commerce");
 
   return (
