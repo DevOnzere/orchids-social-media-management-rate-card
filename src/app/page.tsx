@@ -621,86 +621,112 @@ Please confirm my order.`;
       </nav>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20">
+      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20 bg-white">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 -z-10">
+          {/* Professional Grid Pattern */}
+          <div className="absolute inset-0 opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#hero-grid)" className="text-zinc-900" />
+            </svg>
+          </div>
+
           <motion.div 
             animate={{ 
-              scale: [1, 1.2, 1],
-              x: [0, 50, 0],
-              y: [0, 30, 0],
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[10%] left-[10%] h-[500px] w-[500px] rounded-full bg-indigo-500/20 blur-[100px]" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1.1, 1, 1.1],
+              opacity: [0.2, 0.4, 0.2],
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-indigo-500/10 blur-[120px] dark:bg-indigo-500/5" 
+            className="absolute bottom-[10%] right-[10%] h-[500px] w-[500px] rounded-full bg-pink-500/20 blur-[100px]" 
           />
-          <motion.div 
-            animate={{ 
-              scale: [1.2, 1, 1.2],
-              x: [0, -50, 0],
-              y: [0, -30, 0],
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-pink-500/10 blur-[120px] dark:bg-pink-500/5" 
-          />
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150" />
           
-          {/* Floating Social Elements */}
+          {/* Floating Social Cards */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[
-              { Icon: Instagram, color: "text-pink-500/20", size: 48, top: "15%", left: "10%", delay: 0 },
-              { Icon: Twitter, color: "text-blue-400/20", size: 40, top: "25%", left: "85%", delay: 1 },
-              { Icon: Music2Icon, color: "text-zinc-500/20", size: 56, top: "65%", left: "15%", delay: 2 },
-              { Icon: Facebook, color: "text-blue-600/20", size: 32, top: "75%", left: "80%", delay: 0.5 },
-              { Icon: Heart, color: "text-red-500/20", size: 24, top: "20%", left: "70%", delay: 1.5 },
-              { Icon: MessageCircle, color: "text-green-500/20", size: 36, top: "50%", left: "90%", delay: 0.8 },
-              { Icon: Share2, color: "text-indigo-500/20", size: 28, top: "10%", left: "40%", delay: 2.5 },
-              { Icon: Zap, color: "text-yellow-500/20", size: 32, top: "80%", left: "45%", delay: 1.2 },
-              { Icon: Youtube, color: "text-red-600/20", size: 44, top: "40%", left: "5%", delay: 3 },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                className={`absolute ${item.color}`}
-                style={{ top: item.top, left: item.left }}
-                animate={{
-                  y: [0, -20, 0],
-                  rotate: [0, 10, -10, 0],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 5 + Math.random() * 5,
-                  repeat: Infinity,
-                  delay: item.delay,
-                  ease: "easeInOut",
-                }}
-              >
-                <item.Icon size={item.size} strokeWidth={1.5} />
-              </motion.div>
-            ))}
-
-            {/* Floating UI Elements */}
+            {/* Instagram Style Card */}
             <motion.div
-              className="absolute top-[35%] left-[75%] hidden lg:block"
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              style={{ top: '20%', left: '12%' }}
+              className="absolute hidden xl:block"
             >
-              <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex items-center gap-3">
-                <div className="h-8 w-8 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500" />
-                <div className="space-y-1">
-                  <div className="h-1.5 w-16 bg-zinc-200 dark:bg-zinc-700 rounded-full" />
-                  <div className="h-1 w-10 bg-zinc-100 dark:bg-zinc-800 rounded-full" />
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="w-48 bg-white/90 backdrop-blur-xl p-3 rounded-2xl border border-zinc-200 shadow-2xl"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-6 w-6 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600" />
+                  <div className="h-2 w-16 bg-zinc-200 rounded-full" />
                 </div>
-              </div>
+                <div className="aspect-square rounded-lg bg-zinc-100 mb-2 overflow-hidden flex items-center justify-center">
+                  <Instagram className="h-8 w-8 text-pink-500" />
+                </div>
+                <div className="flex gap-2">
+                  <Heart className="h-3 w-3 text-red-500 fill-red-500" />
+                  <MessageCircle className="h-3 w-3 text-zinc-400" />
+                </div>
+              </motion.div>
             </motion.div>
 
+            {/* TikTok Style Card */}
             <motion.div
-              className="absolute top-[55%] left-[65%] hidden lg:block"
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 1 }}
+              style={{ top: '55%', right: '12%' }}
+              className="absolute hidden xl:block"
             >
-              <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-lg flex items-center gap-2">
-                <Heart className="h-4 w-4 text-red-500 fill-red-500" />
-                <span className="text-[10px] font-black">2.4k</span>
-              </div>
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="w-44 bg-zinc-950 p-3 rounded-2xl border border-white/10 shadow-2xl"
+              >
+                <div className="aspect-[3/4] rounded-lg bg-zinc-800 mb-2 overflow-hidden flex flex-col items-center justify-center relative">
+                  <Music2Icon className="h-10 w-10 text-white" />
+                  <div className="absolute bottom-2 left-2 flex items-center gap-1">
+                    <div className="h-4 w-4 rounded-full bg-cyan-400" />
+                    <div className="h-1.5 w-12 bg-white/20 rounded-full" />
+                  </div>
+                </div>
+                <div className="h-2 w-24 bg-white/10 rounded-full" />
+              </motion.div>
+            </motion.div>
+
+            {/* Stats Card */}
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.9, duration: 1 }}
+              style={{ bottom: '15%', left: '35%' }}
+              className="absolute hidden lg:block"
+            >
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="bg-indigo-600 text-white p-4 rounded-3xl shadow-2xl flex items-center gap-4"
+              >
+                <div className="h-10 w-10 rounded-xl bg-white/20 flex items-center justify-center">
+                  <TrendingUp className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase opacity-70">Weekly Growth</p>
+                  <p className="text-xl font-black">+240%</p>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
