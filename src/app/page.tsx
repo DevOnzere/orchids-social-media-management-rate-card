@@ -1082,10 +1082,10 @@ Please confirm my order.`;
                 <MessageCircle className="mr-3 h-7 w-7 fill-current" />
                 WhatsApp Us
               </Button>
-            <Button size="lg" variant="outline" className="h-20 w-full sm:w-auto rounded-full border-2 border-white/20 px-12 text-xl font-black uppercase tracking-wider backdrop-blur-xl hover:bg-white/10 dark:border-black/20 dark:hover:bg-black/10" onClick={bookStrategyCall}>
-              Book a Strategy Call
-            </Button>
-
+              <Button size="lg" variant="outline" className="h-20 w-full sm:w-auto rounded-full border-2 border-white/20 px-12 text-xl font-black uppercase tracking-wider backdrop-blur-xl hover:bg-white/10 dark:border-black/20 dark:hover:bg-black/10" onClick={bookStrategyCall}>
+                <PhoneCall className="mr-3 h-7 w-7" />
+                Book a Strategy Call
+              </Button>
             </div>
             
             <div className="mt-24 flex flex-wrap justify-center gap-12 opacity-20 grayscale hover:grayscale-0 transition-all">
