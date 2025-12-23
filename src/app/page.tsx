@@ -547,7 +547,22 @@ export default function LandingPage() {
             transition={{ delay: 0.1, duration: 0.8 }}
             className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem]"
           >
-            CRAFTING <span className="text-indigo-600">ICONIC</span> <br />
+            CRAFTING{" "}
+            <motion.span 
+              animate={{ 
+                color: ["#4f46e5", "#ec4899", "#8b5cf6", "#4f46e5"],
+                textShadow: [
+                  "0 0 20px rgba(79,70,229,0)", 
+                  "0 0 20px rgba(236,72,153,0.3)", 
+                  "0 0 20px rgba(139,92,246,0.3)",
+                  "0 0 20px rgba(79,70,229,0)"
+                ]
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            >
+              ICONIC
+            </motion.span>{" "}
+            <br />
             <span className="inline-block relative">
               DIGITAL
               <div className="absolute -bottom-2 left-0 h-4 w-full bg-indigo-500/20 -rotate-1 rounded-full" />
