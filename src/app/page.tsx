@@ -866,6 +866,54 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Extra Services Section */}
+      <section id="extra-services" className="py-32 bg-zinc-50 dark:bg-zinc-900/50">
+        <div className="container mx-auto px-6">
+          <div className="mb-20 text-center">
+            <Badge className="mb-4 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-none px-4 py-1">Add-ons</Badge>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Extra Services</h2>
+            <p className="mt-4 text-zinc-500 max-w-xl mx-auto">Boost your digital presence with our specialized auxiliary services designed for scale.</p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {PLATFORMS.find(p => p.id === "extra")?.plans.map((plan, i) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-white dark:bg-zinc-950 p-8 rounded-[2rem] border-2 border-zinc-100 dark:border-zinc-800 shadow-xl shadow-zinc-500/5 h-full flex flex-col">
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-xl font-black uppercase tracking-tight">{plan.name}</h3>
+                    <Sparkles className="h-5 w-5 text-indigo-500" />
+                  </div>
+                  <div className="mb-6">
+                    <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Starts from</span>
+                    <p className="text-3xl font-black text-indigo-600">KES {plan.price}</p>
+                  </div>
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    {plan.features.map(f => (
+                      <li key={f} className="flex items-center gap-3 text-xs font-bold text-zinc-500 uppercase tracking-wide">
+                        <CheckCircle2 className="h-3 w-3 text-zinc-300" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    variant="outline" 
+                    className="w-full h-14 rounded-xl border-2 font-black uppercase tracking-wider text-[10px] hover:bg-indigo-600 hover:text-white transition-all"
+                    onClick={() => handleSelect(plan, "Extra Services")}
+                  >
+                    Select Service
+                  </Button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Special Combo Highlight */}
       <section id="combos" className="py-32 relative overflow-hidden bg-indigo-600 text-white">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
