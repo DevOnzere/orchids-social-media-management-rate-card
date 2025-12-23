@@ -855,7 +855,17 @@ Please confirm my order.`;
             transition={{ delay: 0.1, duration: 0.8 }}
             className="mx-auto max-w-5xl text-6xl font-black leading-[0.9] tracking-tighter md:text-[9.5rem] text-zinc-950"
           >
-            CRAFTING{" "}
+            <motion.span 
+              className="inline-block"
+              animate={{ 
+                color: ["#4f46e5", "#ec4899", "#8b5cf6", "#4f46e5"],
+              }}
+              transition={{ 
+                color: { duration: 5, repeat: Infinity, ease: "linear", delay: 1 }
+              }}
+            >
+              CRAFTING
+            </motion.span>{" "}
             <motion.span 
               className="inline-block"
               animate={{ 
@@ -878,7 +888,15 @@ Please confirm my order.`;
                 transition={{ delay: 1, duration: 0.8 }}
                 className="absolute -bottom-4 left-0 h-6 bg-indigo-500/10 -z-10" 
               />
-            </span> BRANDS.
+            </span>{" "}
+            <span className="inline-block min-w-[200px] text-indigo-600">
+              {words[wordIndex].substring(0, subIndex)}
+              <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity, ease: "stepEnd" }}
+                className="inline-block w-2 h-[0.8em] bg-current ml-1 align-middle"
+              />
+            </span>
           </motion.h1>
           
           <motion.p
