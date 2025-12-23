@@ -52,9 +52,9 @@ const PLATFORMS = [
     icon: Instagram,
     color: "bg-pink-500",
     plans: [
-      { name: "Starter", price: "5,000", features: ["10 posts per month", "2 reels per month", "2 stories per month", "Basic graphics & captions", "Hashtag research", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "12,000", featured: true, features: ["20 posts per month", "8 reels per month", "12 stories per month", "Custom graphics & reels", "Daily community management (24h)", "Hashtag strategy", "Monthly analytics + insights"] },
-      { name: "Professional", price: "20,000", features: ["30 posts per month", "12 reels per month", "20 stories per month", "Premium content creation", "Real-time community management", "Influencer outreach support", "Detailed monthly analytics"] },
+      { name: "Mini", price: "5,000", features: ["10 posts per month", "2 reels per month", "2 stories per month", "Basic graphics & captions", "Hashtag research", "Community management (48h)", "Monthly analytics"] },
+      { name: "Pro", price: "12,000", featured: true, features: ["20 posts per month", "8 reels per month", "12 stories per month", "Custom graphics & reels", "Daily community management (24h)", "Hashtag strategy", "Monthly analytics + insights"] },
+      { name: "Elite", price: "20,000", features: ["30 posts per month", "12 reels per month", "20 stories per month", "Premium content creation", "Real-time community management", "Influencer outreach support", "Detailed monthly analytics"] },
     ]
   },
   {
@@ -63,9 +63,9 @@ const PLATFORMS = [
     icon: Facebook,
     color: "bg-blue-600",
     plans: [
-      { name: "Starter", price: "4,500", features: ["10 posts per month", "2 videos per month", "2 stories per month", "Basic graphics & captions", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "10,000", featured: true, features: ["20 posts per month", "6 videos per month", "12 stories per month", "Event promotion support", "Daily community management", "Facebook groups engagement", "Monthly analytics + insights"] },
-      { name: "Professional", price: "18,000", features: ["30 posts per month", "10 videos per month", "20 stories per month", "Premium content creation", "Real-time community management", "Facebook ads consultation", "Detailed monthly analytics"] },
+      { name: "Mini", price: "4,500", features: ["10 posts per month", "2 videos per month", "2 stories per month", "Basic graphics & captions", "Community management (48h)", "Monthly analytics"] },
+      { name: "Pro", price: "10,000", featured: true, features: ["20 posts per month", "6 videos per month", "12 stories per month", "Event promotion support", "Daily community management", "Facebook groups engagement", "Monthly analytics + insights"] },
+      { name: "Elite", price: "18,000", features: ["30 posts per month", "10 videos per month", "20 stories per month", "Premium content creation", "Real-time community management", "Facebook ads consultation", "Detailed monthly analytics"] },
     ]
   },
   {
@@ -74,9 +74,9 @@ const PLATFORMS = [
     icon: Music2Icon,
     color: "bg-black",
     plans: [
-      { name: "Starter", price: "6,000", features: ["10 videos per month", "2 trending videos per month", "Trending audio research", "Hashtag optimization", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "13,000", featured: true, features: ["20 videos per month", "6 trending challenge videos", "Trend analysis & participation", "Daily community management", "Content strategy", "Monthly analytics + insights"] },
-      { name: "Professional", price: "22,000", features: ["30 videos per month", "10 trending challenge videos", "Advanced video editing", "Viral content strategy", "Real-time community management", "Influencer collaboration support", "Detailed monthly analytics"] },
+      { name: "Mini", price: "6,000", features: ["10 videos per month", "2 trending videos per month", "Trending audio research", "Hashtag optimization", "Community management (48h)", "Monthly analytics"] },
+      { name: "Pro", price: "13,000", featured: true, features: ["20 videos per month", "6 trending challenge videos", "Trend analysis & participation", "Daily community management", "Content strategy", "Monthly analytics + insights"] },
+      { name: "Elite", price: "22,000", features: ["30 videos per month", "10 trending challenge videos", "Advanced video editing", "Viral content strategy", "Real-time community management", "Influencer collaboration support", "Detailed monthly analytics"] },
     ]
   },
   {
@@ -85,9 +85,9 @@ const PLATFORMS = [
     icon: Youtube,
     color: "bg-red-600",
     plans: [
-      { name: "Starter", price: "10,000", features: ["4 videos per month", "4 YouTube Shorts", "Professional video editing", "SEO optimization", "4 Professional Thumbnails", "Growth Strategy", "Community management", "Monthly analytics"] },
-      { name: "Growth", price: "20,000", featured: true, features: ["4 videos per month", "8 YouTube Shorts", "Professional video editing", "Advanced SEO optimization", "Custom thumbnails", "Playlist organization", "Daily community management", "Monthly analytics + growth strategy"] },
-      { name: "Professional", price: "35,000", features: ["8 videos per month", "16 YouTube Shorts", "Premium video production", "Complete channel optimization", "End screens & cards setup", "Real-time community management", "Sponsorship consultation", "Detailed monthly analytics"] },
+      { name: "Mini", price: "10,000", features: ["4 videos per month", "4 YouTube Shorts", "Professional video editing", "SEO optimization", "4 Professional Thumbnails", "Growth Strategy", "Community management", "Monthly analytics"] },
+      { name: "Pro", price: "20,000", featured: true, features: ["8 videos per month", "8 YouTube Shorts", "Professional video editing", "Advanced SEO optimization", "Custom thumbnails", "Playlist organization", "Daily community management", "Monthly analytics + growth strategy"] },
+      { name: "Elite", price: "35,000", features: ["13 videos per month", "16 YouTube Shorts", "Premium video production", "Complete channel optimization", "End screens & cards setup", "Real-time community management", "Sponsorship consultation", "Detailed monthly analytics"] },
     ]
   },
   {
@@ -96,9 +96,9 @@ const PLATFORMS = [
     icon: Linkedin,
     color: "bg-blue-700",
     plans: [
-      { name: "Starter", price: "4,000", features: ["10 posts per month", "2 carousel posts", "Professional content writing", "Basic networking engagement", "Monthly analytics"] },
-      { name: "Growth", price: "10,000", featured: true, features: ["20 posts per month", "6 carousel posts", "2 articles per month", "Active networking & engagement", "Connection request management", "Monthly analytics + insights"] },
-      { name: "Professional", price: "18,000", features: ["30 posts per month", "10 carousel posts", "4 articles per month", "Thought leadership content", "Premium networking strategy", "LinkedIn ads consultation", "Detailed monthly analytics"] },
+      { name: "Mini", price: "4,000", features: ["10 posts per month", "2 carousel posts", "Professional content writing", "Basic networking engagement", "Monthly analytics"] },
+      { name: "Pro", price: "10,000", featured: true, features: ["20 posts per month", "6 carousel posts", "2 articles per month", "Active networking & engagement", "Connection request management", "Monthly analytics + insights"] },
+      { name: "Elite", price: "18,000", features: ["30 posts per month", "10 carousel posts", "4 articles per month", "Thought leadership content", "Premium networking strategy", "LinkedIn ads consultation", "Detailed monthly analytics"] },
     ]
   },
   {
@@ -107,9 +107,9 @@ const PLATFORMS = [
     icon: Twitter,
     color: "bg-zinc-900",
     plans: [
-      { name: "Starter", price: "3,500", features: ["30 tweets per month", "2 threads per month", "Hashtag research", "Community management (48h)", "Monthly analytics"] },
-      { name: "Growth", price: "8,000", featured: true, features: ["60 tweets per month", "6 threads per month", "Daily community management", "Trending topics participation", "Monthly analytics + insights"] },
-      { name: "Professional", price: "15,000", features: ["90 tweets per month", "12 threads per month", "Real-time engagement", "Twitter Spaces coordination", "Crisis management", "Detailed monthly analytics"] },
+      { name: "Mini", price: "3,500", features: ["30 tweets per month", "2 threads per month", "Hashtag research", "Community management (48h)", "Monthly analytics"] },
+      { name: "Pro", price: "8,000", featured: true, features: ["60 tweets per month", "6 threads per month", "Daily community management", "Trending topics participation", "Monthly analytics + insights"] },
+      { name: "Elite", price: "15,000", features: ["90 tweets per month", "12 threads per month", "Real-time engagement", "Twitter Spaces coordination", "Crisis management", "Detailed monthly analytics"] },
     ]
   },
   {
@@ -118,9 +118,9 @@ const PLATFORMS = [
     icon: Pinterest,
     color: "bg-red-500",
     plans: [
-      { name: "Starter", price: "3,500", features: ["25 pins per month", "2 idea pins per month", "Board organization", "SEO optimization", "Monthly analytics"] },
-      { name: "Growth", price: "8,000", featured: true, features: ["50 pins per month", "6 idea pins per month", "Custom pin designs", "Board strategy", "Monthly analytics + insights"] },
-      { name: "Professional", price: "14,000", features: ["75 pins per month", "12 idea pins per month", "Premium pin designs", "Complete profile optimization", "Shopping integration", "Detailed monthly analytics"] },
+      { name: "Mini", price: "3,500", features: ["25 pins per month", "2 idea pins per month", "Board organization", "SEO optimization", "Monthly analytics"] },
+      { name: "Pro", price: "8,000", featured: true, features: ["50 pins per month", "6 idea pins per month", "Custom pin designs", "Board strategy", "Monthly analytics + insights"] },
+      { name: "Elite", price: "14,000", features: ["75 pins per month", "12 idea pins per month", "Premium pin designs", "Complete profile optimization", "Shopping integration", "Detailed monthly analytics"] },
     ]
   },
   {
