@@ -642,11 +642,11 @@ Please confirm my order.`;
       </nav>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20 bg-white">
+      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pt-20">
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 -z-10 bg-white">
+        <div className="absolute inset-0 z-0 bg-white">
           {/* Professional Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.1] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]">
+          <div className="absolute inset-0 opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -657,56 +657,67 @@ Please confirm my order.`;
             </svg>
           </div>
 
-          {/* Premium Animated Orbs - Brighter for Light Mode */}
+          {/* Premium Animated Orbs - More prominent */}
           <motion.div 
             animate={{ 
-              scale: [1, 1.2, 1],
-              x: [0, 80, 0],
-              y: [0, -40, 0],
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[5%] left-[10%] h-[700px] w-[700px] rounded-full bg-indigo-500/15 blur-[120px]" 
-          />
-          <motion.div 
-            animate={{ 
-              scale: [1.3, 1, 1.3],
-              x: [0, -80, 0],
-              y: [0, 40, 0],
+              scale: [1, 1.3, 1],
+              x: [0, 100, 0],
+              y: [0, -60, 0],
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[5%] right-[10%] h-[700px] w-[700px] rounded-full bg-pink-500/10 blur-[120px]" 
+            className="absolute top-[10%] left-[5%] h-[800px] w-[800px] rounded-full bg-indigo-500/20 blur-[130px]" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1.4, 1, 1.4],
+              x: [0, -100, 0],
+              y: [0, 60, 0],
+            }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[10%] right-[5%] h-[800px] w-[800px] rounded-full bg-pink-500/15 blur-[130px]" 
           />
 
-          {/* Iconic Social Logos - Large, subtle, floating behind the text */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-            <motion.div
-              animate={{ y: [0, -40, 0], rotate: [0, 10, 0] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute top-[20%] left-[15%] text-indigo-200"
-            >
-              <Instagram className="h-48 w-48" />
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, 40, 0], rotate: [0, -10, 0] }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute bottom-[20%] right-[15%] text-pink-200"
-            >
-              <Music2Icon className="h-40 w-40" />
-            </motion.div>
-            <motion.div
-              animate={{ x: [0, 30, 0] }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-              className="absolute top-[50%] right-[10%] text-blue-100"
-            >
-              <Twitter className="h-32 w-32" />
-            </motion.div>
+          {/* Iconic Social Logos - Centered behind the text area */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 overflow-hidden">
+            <div className="relative w-full max-w-6xl h-full">
+              <motion.div
+                animate={{ 
+                  y: [0, -30, 0],
+                  rotate: [-5, 5, -5]
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[20%] left-[10%] text-indigo-400/40"
+              >
+                <Instagram className="h-64 w-64" />
+              </motion.div>
+              <motion.div
+                animate={{ 
+                  y: [0, 30, 0],
+                  rotate: [5, -5, 5]
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-[15%] right-[10%] text-pink-400/40"
+              >
+                <Music2Icon className="h-56 w-56" />
+              </motion.div>
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.5, 0.3]
+                }}
+                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[40%] left-[40%] text-blue-400/20"
+              >
+                <Twitter className="h-96 w-96" />
+              </motion.div>
+            </div>
           </div>
 
-          {/* Interactive 'Like' Particles */}
+          {/* Floating 'Like' Hearts - More frequent and visible */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(10)].map((_, i) => (
+            {[...Array(15)].map((_, i) => (
               <motion.div
-                key={`bubble-${i}`}
+                key={`heart-${i}`}
                 initial={{ 
                   x: Math.random() * 100 + "%", 
                   y: "110%", 
@@ -715,20 +726,20 @@ Please confirm my order.`;
                 }}
                 animate={{ 
                   y: "-10%", 
-                  opacity: [0, 1, 0],
-                  x: (Math.random() * 100 - 50) + "px",
-                  scale: [0.2, 1, 0.5]
+                  opacity: [0, 0.8, 0],
+                  x: (Math.random() * 120 - 60) + "px",
+                  scale: [0.2, 1.2, 0.6]
                 }}
                 transition={{ 
-                  duration: 6 + Math.random() * 8, 
+                  duration: 5 + Math.random() * 7, 
                   repeat: Infinity, 
-                  delay: Math.random() * 10,
+                  delay: Math.random() * 12,
                   ease: "easeOut"
                 }}
                 className="absolute"
               >
-                <div className="bg-pink-500 rounded-full p-2 shadow-lg">
-                  <Heart className="h-4 w-4 text-white fill-current" />
+                <div className="bg-pink-500/80 rounded-full p-3 shadow-xl backdrop-blur-sm">
+                  <Heart className="h-5 w-5 text-white fill-current" />
                 </div>
               </motion.div>
             ))}
