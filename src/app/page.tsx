@@ -1196,32 +1196,32 @@ Please confirm my order.`;
       </section>
 
       {/* CTA Section - "Iconic" high impact */}
-      <section className="py-40">
+      <section className="py-40 bg-zinc-50 dark:bg-zinc-950">
         <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="relative rounded-[4rem] bg-zinc-950 px-8 py-32 text-white dark:bg-white dark:text-black overflow-hidden"
+            className="relative rounded-[4rem] bg-white px-8 py-32 text-black border-2 border-zinc-100 shadow-2xl overflow-hidden"
           >
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
               <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <pattern id="grid-large" width="80" height="80" patternUnits="userSpaceOnUse">
-                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="1"/>
+                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="black" strokeWidth="1"/>
                   </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid-large)" />
               </svg>
             </div>
 
-            <h2 className="relative z-10 text-6xl lg:text-[9rem] font-black tracking-tighter uppercase leading-[0.8] mb-12">LEAVE YOUR <br /> <span className="text-indigo-500">MARK.</span></h2>
+            <h2 className="relative z-10 text-6xl lg:text-[9rem] font-black tracking-tighter uppercase leading-[0.8] mb-12">LEAVE YOUR <br /> <span className="text-indigo-600">MARK.</span></h2>
             <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button size="lg" className="h-20 w-full sm:w-auto rounded-full bg-indigo-600 px-12 text-xl font-black uppercase tracking-wider hover:bg-indigo-700 shadow-2xl shadow-indigo-500/40" onClick={openWhatsApp}>
+              <Button size="lg" className="h-20 w-full sm:w-auto rounded-full bg-indigo-600 px-12 text-xl font-black uppercase tracking-wider hover:bg-indigo-700 text-white shadow-2xl shadow-indigo-500/40" onClick={openWhatsApp}>
                 <MessageCircle className="mr-3 h-7 w-7 fill-current" />
                 WhatsApp Us
               </Button>
-              <Button size="lg" className="h-20 w-full sm:w-auto rounded-full bg-white text-black hover:bg-zinc-200 px-12 text-xl font-black uppercase tracking-wider border-none shadow-xl dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800" onClick={bookStrategyCall}>
+              <Button size="lg" className="h-20 w-full sm:w-auto rounded-full bg-white text-black hover:bg-zinc-50 px-12 text-xl font-black uppercase tracking-wider border-2 border-zinc-200 shadow-xl" onClick={bookStrategyCall}>
                 <PhoneCall className="mr-3 h-7 w-7" />
                 Book a Strategy Call
               </Button>
