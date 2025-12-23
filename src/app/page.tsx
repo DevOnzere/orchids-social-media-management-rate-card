@@ -753,7 +753,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="mb-24 flex flex-col items-center text-center">
             <Badge className="mb-6 bg-indigo-500 px-6 py-1.5 text-[10px] font-black uppercase tracking-[0.3em]">Efficiency Optimized</Badge>
-            <h2 className="font-heading text-5xl font-black tracking-tighter md:text-7xl uppercase">HYPER-COMBO PLANS</h2>
+            <h2 className="font-heading text-5xl font-black tracking-tighter md:text-7xl uppercase">KIJANA JIAJIRI PACKAGES</h2>
             <p className="mt-6 text-zinc-400 text-lg max-w-2xl">Maximum dominance across multiple digital channels with reduced friction and higher savings.</p>
           </div>
 
