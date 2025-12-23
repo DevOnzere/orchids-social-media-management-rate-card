@@ -199,6 +199,10 @@ export default function LandingPage() {
     window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
   };
 
+  const handleCall = () => {
+    window.location.href = "tel:+254759015580";
+  };
+
   const bookStrategyCall = () => {
     const url = "https://wa.me/254759015580?text=Hello BrandBoost, I would like to book a strategy call for my business.";
     window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url } }, "*");
