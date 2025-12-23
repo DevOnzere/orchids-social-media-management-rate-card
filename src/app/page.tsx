@@ -567,6 +567,36 @@ Please confirm my order.`;
         </DialogContent>
       </Dialog>
 
+      {/* Consult Options Dialog */}
+      <Dialog open={isConsultOpen} onOpenChange={setIsConsultOpen}>
+        <DialogContent className="max-w-md border-none shadow-2xl p-8 rounded-[2.5rem]">
+          <DialogHeader className="mb-6">
+            <DialogTitle className="text-3xl font-black uppercase tracking-tight text-center">Consult Now</DialogTitle>
+            <DialogDescription className="text-center">Choose your preferred way to connect with us.</DialogDescription>
+          </DialogHeader>
+          <div className="grid grid-cols-2 gap-4">
+            <Button 
+              className="h-32 rounded-3xl flex flex-col items-center justify-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white shadow-xl shadow-indigo-500/20 transition-all hover:-translate-y-1"
+              onClick={handleCall}
+            >
+              <div className="p-3 bg-white/20 rounded-2xl">
+                <Phone className="h-6 w-6" />
+              </div>
+              <span className="font-black uppercase tracking-wider text-xs">Call Us</span>
+            </Button>
+            <Button 
+              className="h-32 rounded-3xl flex flex-col items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white shadow-xl shadow-green-500/20 transition-all hover:-translate-y-1"
+              onClick={openWhatsApp}
+            >
+              <div className="p-3 bg-white/20 rounded-2xl">
+                <MessageCircle className="h-6 w-6" />
+              </div>
+              <span className="font-black uppercase tracking-wider text-xs">WhatsApp</span>
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Header */}
       <nav className="fixed top-0 z-50 w-full border-b border-zinc-100 bg-white/80 backdrop-blur-xl dark:border-zinc-800/50 dark:bg-zinc-950/80">
         <div className="container mx-auto flex h-20 items-center justify-between px-6">
