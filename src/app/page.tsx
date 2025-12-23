@@ -588,7 +588,7 @@ export default function LandingPage() {
               Explore Services
               <ArrowRight className="ml-3 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="h-16 rounded-[2rem] border-2 border-zinc-200 px-10 text-lg font-black uppercase tracking-wider backdrop-blur-xl transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900">
+            <Button size="lg" variant="outline" className="h-16 rounded-[2rem] border-2 border-zinc-200 px-10 text-lg font-black uppercase tracking-wider backdrop-blur-xl transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900" onClick={openWhatsApp}>
               WhatsApp Us
             </Button>
           </motion.div>
